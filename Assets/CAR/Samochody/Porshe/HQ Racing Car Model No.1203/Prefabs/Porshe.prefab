@@ -268,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113517181642748138}
   m_LocalRotation: {x: 0.7071068, y: -0.00000005960465, z: -0, w: 0.70710677}
-  m_LocalPosition: {x: -0.0066681104, y: 2.3799999, z: 0.19999185}
+  m_LocalPosition: {x: -0.0066681104, y: 1.03, z: -0.177}
   m_LocalScale: {x: 0.66666675, y: 0.66666675, z: 0.66666675}
   m_Children: []
   m_Father: {fileID: 116207421742859054}
@@ -1177,11 +1177,11 @@ MonoBehaviour:
     shiftPower: 150
     brakePower: 12000
     shiftCentre: {x: 0, y: -0.05, z: 0}
-    maxSteerAngle: 30
+    maxSteerAngle: 40
     shiftDownRPM: 2000
     shiftUpRPM: 4000
     idleRPM: 700
-    stiffness: 3
+    stiffness: 5
     automaticGear: 1
     gears:
     - -9

@@ -155,7 +155,7 @@ public class VehicleControl : MonoBehaviour
     [HideInInspector]
     public bool shift;
 
-    private float torque = 100f;
+    
 
     [HideInInspector]
     public float speed = 0.0f;
