@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 116294739900644752}
   - component: {fileID: 136742472577687514}
   - component: {fileID: 128073862919225852}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SportCar20_WheelRearLeft_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 113517181643257972}
   - component: {fileID: 113517181631723918}
-  m_Layer: 1
+  m_Layer: 6
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1134,7 +1134,7 @@ MonoBehaviour:
       backLeft: {fileID: 108980018501402244}
     setting:
       Radius: 0.55
-      Weight: 1000
+      Weight: 25
       Distance: 0.1
   carLights:
     brakeLights:
@@ -1173,7 +1173,7 @@ MonoBehaviour:
     - {fileID: 0}
     springs: 25000
     dampers: 1500
-    carPower: 120
+    carPower: 60
     shiftPower: 150
     brakePower: 12000
     shiftCentre: {x: 0, y: -0.05, z: 0}
@@ -1192,6 +1192,7 @@ MonoBehaviour:
     - 1
     LimitBackwardSpeed: 60
     LimitForwardSpeed: 220
+  soundMixer: {fileID: 24100000, guid: c7e8da49650a3fc498331a6184a785f3, type: 2}
   brake: 0
   curTorque: 100
   powerShift: 100
@@ -11182,7 +11183,7 @@ GameObject:
   - component: {fileID: 116513523442012640}
   - component: {fileID: 137057543723773810}
   - component: {fileID: 126578829616344348}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SportCar20_WheelFrontRight_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11266,7 +11267,7 @@ GameObject:
   - component: {fileID: 108888948853292974}
   - component: {fileID: 138296734103274108}
   - component: {fileID: 127917718339819890}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SportCar20_WheelRearRight_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11350,7 +11351,7 @@ GameObject:
   - component: {fileID: 116475417117265060}
   - component: {fileID: 138254913312478862}
   - component: {fileID: 126932897575776212}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SportCar20_WheelFrontLeft_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11433,7 +11434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 116207421742859054}
   - component: {fileID: 237457585560305988}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11534,7 +11535,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 109036129255306686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11569,7 +11570,7 @@ GameObject:
   - component: {fileID: 116273845519590108}
   - component: {fileID: 136551158819295838}
   - component: {fileID: 126362672640652114}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SportCar20_WheelFrontLeft_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11651,7 +11652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 108980018501402244}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11686,7 +11687,7 @@ GameObject:
   - component: {fileID: 116289250972593222}
   - component: {fileID: 136430413614279422}
   - component: {fileID: 126540468849512542}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SportCar20_WheelRearLeft_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11770,7 +11771,7 @@ GameObject:
   - component: {fileID: 116243045580245940}
   - component: {fileID: 136817152541472784}
   - component: {fileID: 126411374740723190}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SportCar20_WheelFrontLeft_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11853,7 +11854,7 @@ GameObject:
   - component: {fileID: 109171439370445796}
   - component: {fileID: 136609916637805696}
   - component: {fileID: 126377200617725120}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SportCar20_WheelRearRight_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11936,7 +11937,7 @@ GameObject:
   - component: {fileID: 109022383621772172}
   - component: {fileID: 137001433046881898}
   - component: {fileID: 126614043173502750}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SportCar20_WheelRearRight_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12018,7 +12019,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 116105974905377122}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12051,7 +12052,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 108981020005396654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12084,7 +12085,7 @@ GameObject:
   - component: {fileID: 116092315972910244}
   - component: {fileID: 136969730184154732}
   - component: {fileID: 126237373115360452}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SportCar20_WheelFrontRight_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12166,7 +12167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 116285264084049872}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12201,7 +12202,7 @@ GameObject:
   - component: {fileID: 108964177800808850}
   - component: {fileID: 136866553034482832}
   - component: {fileID: 128119855159166034}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SportCar20_WheelFrontRight_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12284,7 +12285,7 @@ GameObject:
   - component: {fileID: 108889458977483746}
   - component: {fileID: 137070731605189830}
   - component: {fileID: 128108510454527930}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SportCar20_WheelRearLeft_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12367,7 +12368,7 @@ GameObject:
   - component: {fileID: 8659862991813040602}
   - component: {fileID: 8667472111456030130}
   - component: {fileID: 8678132111760129596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: chasis_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12448,7 +12449,7 @@ GameObject:
   - component: {fileID: 8660258899782984880}
   - component: {fileID: 8667819425977453282}
   - component: {fileID: 8677521861283955110}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: window_frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12529,7 +12530,7 @@ GameObject:
   - component: {fileID: 8659864882473081552}
   - component: {fileID: 8667643432675229720}
   - component: {fileID: 8677116843174240798}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12610,7 +12611,7 @@ GameObject:
   - component: {fileID: 8660408296808655050}
   - component: {fileID: 8667931877387141106}
   - component: {fileID: 8677432443395373260}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12691,7 +12692,7 @@ GameObject:
   - component: {fileID: 8660498785127656152}
   - component: {fileID: 8667108728381309458}
   - component: {fileID: 8677503508892700926}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: interior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12772,7 +12773,7 @@ GameObject:
   - component: {fileID: 8660849840186140104}
   - component: {fileID: 8667451424096964346}
   - component: {fileID: 8677808585260146514}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grilles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12853,7 +12854,7 @@ GameObject:
   - component: {fileID: 8660152194489566288}
   - component: {fileID: 8667252497131370852}
   - component: {fileID: 8676752136488650366}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12934,7 +12935,7 @@ GameObject:
   - component: {fileID: 8659921668044806472}
   - component: {fileID: 8667822160576162516}
   - component: {fileID: 8677225541294931998}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: chrome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13015,7 +13016,7 @@ GameObject:
   - component: {fileID: 8659905566954241530}
   - component: {fileID: 8667017464015795104}
   - component: {fileID: 8677422791839558434}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13096,7 +13097,7 @@ GameObject:
   - component: {fileID: 8659955697285588402}
   - component: {fileID: 8667849187969569422}
   - component: {fileID: 8677513496114205412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grills_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13177,7 +13178,7 @@ GameObject:
   - component: {fileID: 8660967264607796504}
   - component: {fileID: 8667108049417859744}
   - component: {fileID: 8677767454064602838}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13258,7 +13259,7 @@ GameObject:
   - component: {fileID: 8660821375403219088}
   - component: {fileID: 8667680817433160484}
   - component: {fileID: 8677793262024927442}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13339,7 +13340,7 @@ GameObject:
   - component: {fileID: 8659898396418125898}
   - component: {fileID: 8667543754812732750}
   - component: {fileID: 8676774696813680050}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: chasis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13418,7 +13419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8660875429587402410}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13464,7 +13465,7 @@ GameObject:
   - component: {fileID: 8660008104548055836}
   - component: {fileID: 8667572791692360694}
   - component: {fileID: 8708453471527700884}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13518,7 +13519,7 @@ GameObject:
   - component: {fileID: 8660840668091437936}
   - component: {fileID: 8667303408020850744}
   - component: {fileID: 8677562427627985098}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: dashboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
