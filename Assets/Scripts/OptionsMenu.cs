@@ -5,6 +5,7 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -97,6 +98,27 @@ public class OptionsMenu : MonoBehaviour
         string rw = res.Substring(0, res.IndexOf("x"));
         string rh = res.Substring(res.IndexOf("x") + 1, res.Length - res.IndexOf("x") - 1);
         Screen.SetResolution(int.Parse(rw), int.Parse(rh), Screen.fullScreen);
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("Tor_01");
+    }
+
+    public void Options()
+    {
+        if (optionsMenu.activeSelf)
+        {
+            optionsMenu.SetActive(false);
+        }
+        else
+        {
+            optionsMenu.SetActive(true);
+        }
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     public void Back()
