@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Runtime;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public enum ControlMode { simple = 1, touch = 2 }
 
@@ -125,7 +128,9 @@ public class VehicleControl : MonoBehaviour
 
     }
 
-    
+    // Kondor - AudioMixer
+
+    public AudioMixer soundMixer;
 
 
     [System.Serializable]
@@ -817,15 +822,23 @@ public class VehicleControl : MonoBehaviour
 
                     }
 
-
-
+                    float value;
+                    double vl = 0;
+                    bool result = soundMixer.GetFloat("Volume", out value);
+                    if (result)
+                    {
+                        vl = (value + 80) / 80; //Volume = <0,1>
+                    }
+                    else vl = 1;
+                    value = DoubleToFloat(vl);
 
                     if (WGrounded && speed > 5 && !brake)
                     {
 
                         pc.enableEmission = true;
 
-                        Particle[currentWheel].GetComponent<AudioSource>().volume = 0.5f;
+
+                        Particle[currentWheel].GetComponent<AudioSource>().volume = Mathf.Abs(value/2);
 
                         if (!Particle[currentWheel].GetComponent<AudioSource>().isPlaying)
                             Particle[currentWheel].GetComponent<AudioSource>().Play();
@@ -840,16 +853,15 @@ public class VehicleControl : MonoBehaviour
                             if (!Particle[currentWheel].GetComponent<AudioSource>().isPlaying)
                                 Particle[currentWheel].GetComponent<AudioSource>().Play();
                             pc.enableEmission = true;
-                            Particle[currentWheel].GetComponent<AudioSource>().volume = 10;
+                            Particle[currentWheel].GetComponent<AudioSource>().volume = 10 * Mathf.Abs(value);
 
                         }
 
                     }
                     else
                     {
-
                         pc.enableEmission = false;
-                        Particle[currentWheel].GetComponent<AudioSource>().volume = Mathf.Lerp(Particle[currentWheel].GetComponent<AudioSource>().volume, 0, Time.deltaTime * 10.0f);
+                        Particle[currentWheel].GetComponent<AudioSource>().volume = Mathf.Lerp(Particle[currentWheel].GetComponent<AudioSource>().volume * Mathf.Abs(value), 0, Time.deltaTime * 10.0f);
                     }
 
                 }
@@ -1027,6 +1039,9 @@ public class VehicleControl : MonoBehaviour
     }
 
 
-
+    public static float DoubleToFloat(double value)
+    {
+        return (float)value;
+    }
 
 }
