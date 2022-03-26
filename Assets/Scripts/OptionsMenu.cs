@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 using TMPro;
 using System.Linq;
-using UnityEngine.SceneManagement;
+
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -14,19 +17,22 @@ public class OptionsMenu : MonoBehaviour
     public AudioMixer audioMixer;
     public TextMeshProUGUI graph;
     public Slider volSlider;
+    private int currentResolitonIndex;
+    private int qualityIndex;
+    private bool isFC;
+    private float vol;
+
+    OptionData optionData;
 
     Resolution[] resolutions;
 
     private static string[] quality = { "LOW", "MEDIUM", "HIGH" };
-    private static int qualityIndex = 2;
 
     private void Start()
     {
         resolutions = Screen.resolutions;
         dropDownRes.ClearOptions();
         List<string> options = new List<string>();
-
-        int currentResolitonIndex = 0;
 
         for (int i = 0; i < resolutions.Length; i++)
         {
@@ -53,18 +59,44 @@ public class OptionsMenu : MonoBehaviour
 
         }
         options = options.Distinct().ToList();
-
         dropDownRes.AddOptions(options);
+        Load();
+        
+        if (optionData.currentResolitonIndex != -1)
+        {
+            currentResolitonIndex = optionData.currentResolitonIndex;
+        }
         dropDownRes.value = currentResolitonIndex;
+
         dropDownRes.RefreshShownValue();
 
+        SetFullscreen(isFC);
+        SetVolume(vol);
+        SetSlider();
         SetQuality(qualityIndex);
 
-        SetSlider();
+    }
+
+    public void Save()
+    {
+        optionData.currentResolitonIndex = currentResolitonIndex;
+        optionData.qualityIndex = qualityIndex;
+        optionData.isFC = isFC;
+        optionData.vol = vol;
+        OptionSave.OpSave(optionData);
+    }
+
+    public void Load()
+    {
+        optionData = OptionSave.OpLoad();
+        qualityIndex =optionData.qualityIndex;
+        isFC=optionData.isFC;
+        vol=optionData.vol;
     }
 
     public void SetVolume(float volume)
     {
+        vol = volume;
         audioMixer.SetFloat("Volume", volume);
     }
 
@@ -77,23 +109,23 @@ public class OptionsMenu : MonoBehaviour
             volSlider.value = value;
         }
         else volSlider.value = 0;
-
     }
 
     public void SetQuality(int qualityIndex)
     {
-        Debug.Log(qualityIndex);
         QualitySettings.SetQualityLevel(qualityIndex);
         graph.text = quality[qualityIndex];
     }
 
     public void SetFullscreen(bool isFullscreen)
     {
+        isFC = isFullscreen;
         Screen.fullScreen = isFullscreen;
     }
 
     public void SetResolution(int resolutionIndex)
     {
+        currentResolitonIndex = resolutionIndex;
         string res = dropDownRes.options[dropDownRes.value].text;
         string rw = res.Substring(0, res.IndexOf("x"));
         string rh = res.Substring(res.IndexOf("x") + 1, res.Length - res.IndexOf("x") - 1);
@@ -102,6 +134,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        Save();
         SceneManager.LoadScene("Tor_01");
     }
 
@@ -115,14 +148,17 @@ public class OptionsMenu : MonoBehaviour
         {
             optionsMenu.SetActive(true);
         }
+        Save();
     }
     public void QuitGame()
     {
+        Save();
         Application.Quit();
     }
 
     public void Back()
     {
+        Save();
         optionsMenu.SetActive(false);
     }
     public void IncQual()
