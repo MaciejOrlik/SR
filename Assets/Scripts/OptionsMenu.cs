@@ -17,6 +17,7 @@ public class OptionsMenu : MonoBehaviour
     public AudioMixer audioMixer;
     public TextMeshProUGUI graph;
     public Slider volSlider;
+    public Toggle FCToggle;
     private int currentResolitonIndex;
     private int qualityIndex;
     private bool isFC;
@@ -70,10 +71,11 @@ public class OptionsMenu : MonoBehaviour
 
         dropDownRes.RefreshShownValue();
 
-        SetFullscreen(isFC);
+        SetFC(isFC);
         SetVolume(vol);
         SetSlider();
         SetQuality(qualityIndex);
+        SetResolution(currentResolitonIndex);
 
     }
 
@@ -117,6 +119,11 @@ public class OptionsMenu : MonoBehaviour
         graph.text = quality[qualityIndex];
     }
 
+    public void SetFC (bool isFC)
+    {
+        FCToggle.isOn = isFC;
+        SetFullscreen(isFC);
+    }
     public void SetFullscreen(bool isFullscreen)
     {
         isFC = isFullscreen;

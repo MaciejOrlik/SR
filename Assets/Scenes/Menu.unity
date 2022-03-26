@@ -4039,6 +4039,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: c7e8da49650a3fc498331a6184a785f3, type: 2}
   graph: {fileID: 567257119}
   volSlider: {fileID: 1288147533}
+  FCToggle: {fileID: 669849723}
 --- !u!1 &1668647594
 GameObject:
   m_ObjectHideFlags: 0
