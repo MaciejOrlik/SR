@@ -130,7 +130,7 @@ public class VehicleControl : MonoBehaviour
 
     // Kondor - AudioMixer
 
-    public AudioMixer soundMixer;
+    public AudioMixerGroup soundGroupMixer;
 
 
     [System.Serializable]
@@ -273,7 +273,6 @@ public class VehicleControl : MonoBehaviour
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    
 
     void Awake()
     {
@@ -326,8 +325,6 @@ public class VehicleControl : MonoBehaviour
 
 
         }
-
-
     }
 
 
@@ -342,7 +339,7 @@ public class VehicleControl : MonoBehaviour
         if (currentGear < carSetting.gears.Length - 1)
         {
 
-           // if (!carSounds.switchGear.isPlaying)
+            // if (!carSounds.switchGear.isPlaying)
                 carSounds.switchGear.GetComponent<AudioSource>().Play();
 
 
@@ -787,6 +784,7 @@ public class VehicleControl : MonoBehaviour
                         Particle[currentWheel].name = "WheelParticle";
                         Particle[currentWheel].transform.parent = transform;
                         Particle[currentWheel].AddComponent<AudioSource>();
+                        Particle[currentWheel].GetComponent<AudioSource>().outputAudioMixerGroup = soundGroupMixer;
                         Particle[currentWheel].GetComponent<AudioSource>().maxDistance = 50;
                         Particle[currentWheel].GetComponent<AudioSource>().spatialBlend = 1;
                         Particle[currentWheel].GetComponent<AudioSource>().dopplerLevel = 5;
@@ -822,15 +820,7 @@ public class VehicleControl : MonoBehaviour
 
                     }
 
-                    float value;
-                    double vl = 0;
-                    bool result = soundMixer.GetFloat("Volume", out value);
-                    if (result)
-                    {
-                        vl = (value + 80) / 80; //Volume = <0,1>
-                    }
-                    else vl = 1;
-                    value = DoubleToFloat(vl);
+                    
 
                     if (WGrounded && speed > 5 && !brake)
                     {
@@ -838,7 +828,7 @@ public class VehicleControl : MonoBehaviour
                         pc.enableEmission = true;
 
 
-                        Particle[currentWheel].GetComponent<AudioSource>().volume = Mathf.Abs(value/2);
+                        Particle[currentWheel].GetComponent<AudioSource>().volume = 0.5f;
 
                         if (!Particle[currentWheel].GetComponent<AudioSource>().isPlaying)
                             Particle[currentWheel].GetComponent<AudioSource>().Play();
@@ -853,7 +843,7 @@ public class VehicleControl : MonoBehaviour
                             if (!Particle[currentWheel].GetComponent<AudioSource>().isPlaying)
                                 Particle[currentWheel].GetComponent<AudioSource>().Play();
                             pc.enableEmission = true;
-                            Particle[currentWheel].GetComponent<AudioSource>().volume = 10 * Mathf.Abs(value);
+                            Particle[currentWheel].GetComponent<AudioSource>().volume = 10;
 
                         }
 
@@ -861,7 +851,7 @@ public class VehicleControl : MonoBehaviour
                     else
                     {
                         pc.enableEmission = false;
-                        Particle[currentWheel].GetComponent<AudioSource>().volume = Mathf.Lerp(Particle[currentWheel].GetComponent<AudioSource>().volume * Mathf.Abs(value), 0, Time.deltaTime * 10.0f);
+                        Particle[currentWheel].GetComponent<AudioSource>().volume = Mathf.Lerp(Particle[currentWheel].GetComponent<AudioSource>().volume, 0, Time.deltaTime * 10.0f);
                     }
 
                 }

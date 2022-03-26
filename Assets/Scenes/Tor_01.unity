@@ -806,6 +806,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 113517181632175932, guid: e78ca0d3fccb31a4687703d805cce3d3, type: 3}
+      propertyPath: soundGroupMixer
+      value: 
+      objectReference: {fileID: -1519721096506949183, guid: c7e8da49650a3fc498331a6184a785f3, type: 2}
     - target: {fileID: 113517181642954644, guid: e78ca0d3fccb31a4687703d805cce3d3, type: 3}
       propertyPath: m_Name
       value: Porshe
