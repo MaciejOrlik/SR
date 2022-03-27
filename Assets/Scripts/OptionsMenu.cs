@@ -142,7 +142,7 @@ public class OptionsMenu : MonoBehaviour
     public void PlayGame()
     {
         Save();
-        SceneManager.LoadScene("Tor_01");
+        SceneManager.LoadScene("Garage");
     }
 
     public void Options()
