@@ -36,7 +36,7 @@ public class MapSelect : MonoBehaviour
         mapName.text = mapNames[mapIndex];
     }
 
-    public void IncMap()
+    public void IncMap()    //mapIndex ++
     {
         if (mapIndex < 3)
         {
@@ -49,7 +49,7 @@ public class MapSelect : MonoBehaviour
         DispMap();
     }
 
-    public void DecMap()
+    public void DecMap()    //mapIndex --
     {
         if (mapIndex == 0)
         {

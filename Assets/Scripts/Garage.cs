@@ -14,6 +14,8 @@ public class Garage : MonoBehaviour
     public Slider nitroSlider;
     public Slider brakeSlider;
 
+    private int carIndex;
+
     private float engineValue;
     private float nitroValue;
     private float brakeValue;
@@ -26,12 +28,36 @@ public class Garage : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape)) // ESC hierarchi MENU <- GARAZ <- INNE OKNA
         {
             SceneManager.LoadScene("Menu");
         }    
     }
 
+    public void carSelect() // wybor samochodu na podstawie indexu <0,3>
+    {
+        switch (carIndex) //Uzueplnic .setActive
+        {
+            case 0:
+
+                break;
+            case 1:
+
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            default:
+                break;
+        }
+
+    }
+    
+
+    // ZMIANA SCEN
     public void sceneMap ()
     {
         SceneManager.LoadScene("Map_Select");
@@ -49,6 +75,7 @@ public class Garage : MonoBehaviour
         Application.Quit();
     }    
         
+    // USTAWIANIE WARTOSCI STATYSTYK 
     public void setEngine ()
     {
         engineFill.fillAmount = engineSlider.value;
@@ -60,5 +87,31 @@ public class Garage : MonoBehaviour
     public void setBrake ()
     {
         brakeFill.fillAmount = brakeSlider.value;
+    }
+
+    public void IncQual() //carIndex ++
+    {
+        if (carIndex < 2)
+        {
+            carIndex++;
+        }
+        else
+        {
+            carIndex = 0;
+        }
+        carSelect();
+    }
+
+    public void DecQual() // carIndex --
+    {
+        if (carIndex == 0)
+        {
+            carIndex = 2;
+        }
+        else
+        {
+            carIndex--;
+        }
+        carSelect();
     }
 }

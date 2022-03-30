@@ -31,66 +31,71 @@ public class OptionsMenu : MonoBehaviour
 
     private void Start()
     {
-        resolutions = Screen.resolutions;
+        resolutions = Screen.resolutions;       // Tworzy liste dostepnych rozdzielczosci systemowych
         dropDownRes.ClearOptions();
-        List<string> options = new List<string>();
+        List<string> options = new List<string>();  // Nowa list stringow
+        int blad = 0;
 
         for (int i = 0; i < resolutions.Length; i++)
         {
             string option =
                 resolutions[i].width + "x" +
-                resolutions[i].height;
-            if (i > 0)
+                resolutions[i].height;  // Rozdzielczosc
+            if (i > 0)                  // Czy jest wiecej niz jedno
             {
                 if (resolutions[i].width != resolutions[i - 1].width &&
-                    resolutions[i - 1].height != resolutions[i].height)
+                    resolutions[i - 1].height != resolutions[i].height) //Sprawdza czy wczesniej nie bylo takiej rozdzielczosci (czy sie NIE powtarza)
                 {
-                    options.Add(option);
+                    options.Add(option);    // Dodaje opcje
+                }
+                else
+                {
+                    blad++;     // Zwieksza sie za kazda opcje nie dodana (wykorzystywane do liczenia faktycznego indeksu)
                 }
             }
             else
             {
-                options.Add(option);
+                options.Add(option);    // Jak jest jedynym to po prostu dodaje
             }
             if (resolutions[i].width == Screen.currentResolution.width
-                && resolutions[i].height == Screen.currentResolution.height)
+                && resolutions[i].height == Screen.currentResolution.height) // Czy sprawdzana rozdzielczosc jest aktualna rozdzielczoscia?
             {
-                currentResolitonIndex = i;
+                currentResolitonIndex = i-blad; // index - niedodane opcje = faktyczny index
             }
 
         }
-        options = options.Distinct().ToList();
-        dropDownRes.AddOptions(options);
-        Load();
+        //options = options.Distinct().ToList();
+        dropDownRes.AddOptions(options);        // dropDown dostaje liste rozdzielczosci
+        Load();                                 // Laduje opcje z pliku (jak nie ma to default leci)
         
-        if (optionData.currentResolitonIndex != -1)
+        if (optionData.currentResolitonIndex != -1) // Na defaulcie jest index = -1, wiec inna wartosc znaczy ze nie jest defaultem, wiec:
         {
-            currentResolitonIndex = optionData.currentResolitonIndex;
+            currentResolitonIndex = optionData.currentResolitonIndex;   // daje wczytany z pliku index jako prawdziwy
         }
-        dropDownRes.value = currentResolitonIndex;
-
+        dropDownRes.value = currentResolitonIndex;  //dropDown przypisuje rozdzielczosc na podstawie indeksu
         dropDownRes.RefreshShownValue();
 
+        //Ustaw graficznie wartosci na podstawie opcji
         SetFC(isFC);
         SetVolume(vol);
         SetSlider();
-        SetQuality(qualityIndex);
-        SetResolution(currentResolitonIndex);
+        SetQuality();
+        SetResolution(currentResolitonIndex);   
 
     }
 
-    public void Save()
+    public void Save()  // Zapisuje dane klasy do pliku
     {
         optionData.currentResolitonIndex = currentResolitonIndex;
         optionData.qualityIndex = qualityIndex;
         optionData.isFC = isFC;
         optionData.vol = vol;
-        OptionSave.OpSave(optionData);
+        OptionSave.OpSave(optionData);  //Zapis w pliku OptionSave.cs
     }
 
-    public void Load()
+    public void Load()  // Zczytuje dane klasy z pliku (resolution jest zrobione w starcie)
     {
-        optionData = OptionSave.OpLoad();
+        optionData = OptionSave.OpLoad();   //Odczyt w pliku OptionSave.cs
         qualityIndex =optionData.qualityIndex;
         isFC=optionData.isFC;
         vol=optionData.vol;
@@ -102,7 +107,7 @@ public class OptionsMenu : MonoBehaviour
         audioMixer.SetFloat("Volume", volume);
     }
 
-    public void SetSlider()
+    public void SetSlider() //Ustawia graficzna wartosc slidera
     {
         float value;
         bool result = audioMixer.GetFloat("Volume", out value);
@@ -113,13 +118,13 @@ public class OptionsMenu : MonoBehaviour
         else volSlider.value = 0;
     }
 
-    public void SetQuality(int qualityIndex)
+    public void SetQuality()
     {
         QualitySettings.SetQualityLevel(qualityIndex);
         graph.text = quality[qualityIndex];
     }
 
-    public void SetFC (bool isFC)
+    public void SetFC (bool isFC) // Ustawia guzik toggla odpowiednio
     {
         FCToggle.isOn = isFC;
         SetFullscreen(isFC);
@@ -130,7 +135,7 @@ public class OptionsMenu : MonoBehaviour
         Screen.fullScreen = isFullscreen;
     }
 
-    public void SetResolution(int resolutionIndex)
+    public void SetResolution(int resolutionIndex) // Bierze WIDTHxHEIGHT i ustawia
     {
         currentResolitonIndex = resolutionIndex;
         string res = dropDownRes.options[dropDownRes.value].text;
@@ -145,7 +150,7 @@ public class OptionsMenu : MonoBehaviour
         SceneManager.LoadScene("Garage");
     }
 
-    public void Options()
+    public void Options()   // Wlacz/Wylacz widok opcji
     {
         if (optionsMenu.activeSelf)
         {
@@ -168,7 +173,7 @@ public class OptionsMenu : MonoBehaviour
         Save();
         optionsMenu.SetActive(false);
     }
-    public void IncQual()
+    public void IncQual()   //qualityindex ++
     {
         if (qualityIndex < 2)
         {
@@ -178,10 +183,10 @@ public class OptionsMenu : MonoBehaviour
         {
             qualityIndex = 0;
         }
-        SetQuality(qualityIndex);
+        SetQuality();
     }
 
-    public void DecQual()
+    public void DecQual()   //qualityindex --
     {
         if (qualityIndex == 0)
         {
@@ -191,6 +196,6 @@ public class OptionsMenu : MonoBehaviour
         {
             qualityIndex--;
         }
-        SetQuality(qualityIndex);
+        SetQuality();
     }
 }
