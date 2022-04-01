@@ -6,24 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class Garage : MonoBehaviour
 {
+    //CAR STAT GRAPHIC VALUE
     public Image engineFill;
     public Image nitroFill;
     public Image brakeFill;
-
-    public Slider engineSlider;
-    public Slider nitroSlider;
-    public Slider brakeSlider;
-
+    //CARS
+    public GameObject Porche;   
+    public GameObject Mercedes;
+    public GameObject Focus;
+    public GameObject Supra;
     private int carIndex;
+    //CAR STATS
+    private float[] engineValue = { 0.5f, 0.7f, 0.9f, 0.2f };
+    private float[] nitroValue = { 0f, 0.2f, 0.8f, 0f };
+    private float[] brakeValue = { 0.25f, 0.5f, 0.75f, 0.2f };
 
-    private float engineValue;
-    private float nitroValue;
-    private float brakeValue;
     void Start()
     {
-        setEngine();
-        setNitro();
-        setBrake();
+        setAll();
     }
 
     private void Update()
@@ -31,32 +31,37 @@ public class Garage : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape)) // ESC hierarchi MENU <- GARAZ <- INNE OKNA
         {
             SceneManager.LoadScene("Menu");
-        }    
+        }
+
+
+
     }
 
     public void carSelect() // wybor samochodu na podstawie indexu <0,3>
     {
+        Mercedes.SetActive(false);
+        Supra.SetActive(false);
+        Porche.SetActive(false);
+        Focus.SetActive(false);
         switch (carIndex) //Uzueplnic .setActive
         {
             case 0:
-
+                Mercedes.SetActive(true);
                 break;
             case 1:
-
+                Supra.SetActive(true);
                 break;
             case 2:
-
+                Porche.SetActive(true);
                 break;
             case 3:
-
+                Focus.SetActive(true);
                 break;
             default:
                 break;
         }
-
+        setAll();
     }
-    
-
     // ZMIANA SCEN
     public void sceneMap ()
     {
@@ -76,22 +81,28 @@ public class Garage : MonoBehaviour
     }    
         
     // USTAWIANIE WARTOSCI STATYSTYK 
-    public void setEngine ()
+    private void setEngine ()
     {
-        engineFill.fillAmount = engineSlider.value;
+        engineFill.fillAmount = engineValue[carIndex];
     }
-    public void setNitro ()
+    private void setNitro ()
     {
-        nitroFill.fillAmount = nitroSlider.value;
+        nitroFill.fillAmount = nitroValue[carIndex];
     }
-    public void setBrake ()
+    private void setBrake ()
     {
-        brakeFill.fillAmount = brakeSlider.value;
+        brakeFill.fillAmount = brakeValue[carIndex];
+    }
+    public void setAll ()
+    {
+        setEngine();
+        setNitro();
+        setBrake();
     }
 
-    public void IncQual() //carIndex ++
+    public void IncCar() //carIndex ++
     {
-        if (carIndex < 2)
+        if (carIndex < 3)
         {
             carIndex++;
         }
@@ -102,11 +113,11 @@ public class Garage : MonoBehaviour
         carSelect();
     }
 
-    public void DecQual() // carIndex --
+    public void DecCar() // carIndex --
     {
         if (carIndex == 0)
         {
-            carIndex = 2;
+            carIndex = 3;
         }
         else
         {
