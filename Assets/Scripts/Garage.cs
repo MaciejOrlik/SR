@@ -11,19 +11,19 @@ public class Garage : MonoBehaviour
     public Image nitroFill;
     public Image brakeFill;
     //CARS
-    public GameObject Porche;   
+    public GameObject Porshe;   
     public GameObject Mercedes;
     public GameObject Focus;
     public GameObject Supra;
     private int carIndex;
     //CAR STATS
-    private float[] engineValue = { 0.5f, 0.7f, 0.9f, 0.2f };
-    private float[] nitroValue = { 0f, 0.2f, 0.8f, 0f };
-    private float[] brakeValue = { 0.25f, 0.5f, 0.75f, 0.2f };
-
+    private float[] engineValue = { 0f, 0f, 0f, 0f };
+    private float[] nitroValue = { 0f, 0f, 0f, 0f };
+    private float[] brakeValue = { 0f, 0f, 0f, 0f };
+    
     void Start()
     {
-        setAll();
+        carSelect();
     }
 
     private void Update()
@@ -32,30 +32,27 @@ public class Garage : MonoBehaviour
         {
             SceneManager.LoadScene("Menu");
         }
-
-
-
     }
 
     public void carSelect() // wybor samochodu na podstawie indexu <0,3>
     {
         Mercedes.SetActive(false);
         Supra.SetActive(false);
-        Porche.SetActive(false);
+        Porshe.SetActive(false);
         Focus.SetActive(false);
         switch (carIndex) //Uzueplnic .setActive
         {
             case 0:
-                Mercedes.SetActive(true);
+                Focus.SetActive(true);
                 break;
             case 1:
                 Supra.SetActive(true);
                 break;
             case 2:
-                Porche.SetActive(true);
+                Mercedes.SetActive(true);
                 break;
             case 3:
-                Focus.SetActive(true);
+                Porshe.SetActive(true);
                 break;
             default:
                 break;
@@ -124,5 +121,39 @@ public class Garage : MonoBehaviour
             carIndex--;
         }
         carSelect();
+    }
+
+
+    // ---------------------------------------------------  ULEPSZANIE ----------------------------------- //
+
+    public void ulepszSilnik()
+    {
+        if(engineValue[carIndex]<1f)
+        {
+            engineValue[carIndex] = engineValue[carIndex] + 0.34f;
+            setEngine();
+
+        }
+
+    }
+
+    public void ulepszNitro()
+    {
+        if(nitroValue[carIndex]<1f)
+        {
+            nitroValue[carIndex] = nitroValue[carIndex] + 0.34f;
+            setNitro();
+
+        }
+    }
+
+    public void ulepszHamulce()
+    {
+        if (brakeValue[carIndex] < 1f)
+        {
+            brakeValue[carIndex] = brakeValue[carIndex] + 0.34f;
+            setBrake();
+
+        }
     }
 }

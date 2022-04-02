@@ -13723,15 +13723,15 @@ MonoBehaviour:
     - {fileID: 0}
     springs: 25000
     dampers: 1500
-    carPower: 120
-    shiftPower: 150
+    carPower: 75
+    shiftPower: 100
     brakePower: 12000
     shiftCentre: {x: 0, y: -0.05, z: 0}
-    maxSteerAngle: 30
+    maxSteerAngle: 35
     shiftDownRPM: 2000
     shiftUpRPM: 4000
     idleRPM: 700
-    stiffness: 3
+    stiffness: 5
     automaticGear: 1
     gears:
     - -9
@@ -13741,7 +13741,8 @@ MonoBehaviour:
     - 2
     - 1
     LimitBackwardSpeed: 60
-    LimitForwardSpeed: 220
+    LimitForwardSpeed: 300
+  soundGroupMixer: {fileID: 0}
   brake: 0
   curTorque: 100
   powerShift: 100
