@@ -1199,9 +1199,9 @@ GameObject:
   - component: {fileID: 2118132154384222317}
   - component: {fileID: 2118132154380735563}
   - component: {fileID: 2118132154390987689}
-  m_Layer: 1
+  m_Layer: 6
   m_Name: Focus
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

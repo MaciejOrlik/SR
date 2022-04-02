@@ -6,6 +6,11 @@ public class MiniMap : MonoBehaviour
 {
 
     public Transform player;
+    /*
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }*/
 
     private void LateUpdate()
     {

@@ -14,6 +14,7 @@ public class CarData
 
     public CarData ()
     {
+        carIndex = 0;
         for (int i = 0; i < 4; i++)
         {
             for (int j = 0; j < 3; j++)
@@ -25,5 +26,10 @@ public class CarData
         carNitro = new float[,] { { 50f, 150f, 250f }, { 100f, 200f, 300f }, { 150f, 250f, 350f }, { 200f, 300f, 400f } };
         carBrake = new float[,] { { 12000f, 60000f, 120000f }, { 12000f, 60000f, 120000f }, { 12000f, 60000f, 120000f }, { 12000f, 60000f, 120000f } };
         carHave = new bool[] { true, false, false, false };
+    }
+
+    public float carPW()
+    {
+        return carPower[carIndex, carUpgrade[carIndex,0]];
     }
 }

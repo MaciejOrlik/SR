@@ -15,11 +15,17 @@ public class Garage : MonoBehaviour
     public GameObject Mercedes;
     public GameObject Focus;
     public GameObject Supra;
-    private int carIndex;
+    private int carIndex = 0;
     //CAR STATS
+    /*private float engineValue = 0f;
+    private float nitroValue = 0f;
+    private float brakeValue = 0f;*/
+
     private float[] engineValue = { 0f, 0f, 0f, 0f };
     private float[] nitroValue = { 0f, 0f, 0f, 0f };
     private float[] brakeValue = { 0f, 0f, 0f, 0f };
+
+    public CarData car = CarSave.CrLoad();
     
     void Start()
     {
@@ -62,18 +68,22 @@ public class Garage : MonoBehaviour
     // ZMIANA SCEN
     public void sceneMap ()
     {
+        CarSave.CrSave(car);
         SceneManager.LoadScene("Map_Select");
     }
     public void sceneShop ()
     {
+        CarSave.CrSave(car);
         SceneManager.LoadScene("Shop");
     }
     public void sceneMenu ()
     {
+        CarSave.CrSave(car);
         SceneManager.LoadScene("Menu");
     }
     public void quit()
     {
+        CarSave.CrSave(car);
         Application.Quit();
     }    
         
@@ -125,18 +135,18 @@ public class Garage : MonoBehaviour
 
 
     // ---------------------------------------------------  ULEPSZANIE ----------------------------------- //
-
+    /*
     public void ulepszSilnik()
     {
-        if(engineValue[carIndex]<1f)
+        if (car.carUpgrade[car.carIndex, 0] < 2)
         {
-            engineValue[carIndex] = engineValue[carIndex] + 0.34f;
-            setEngine();
-
+            car.carUpgrade[car.carIndex, 0]++;
         }
-
+        engineValue = (car.carPW() - 
+            car.carPower[car.carIndex, 0])/50;
+        setEngine();
     }
-
+    */
     public void ulepszNitro()
     {
         if(nitroValue[carIndex]<1f)
@@ -156,4 +166,5 @@ public class Garage : MonoBehaviour
 
         }
     }
+    
 }

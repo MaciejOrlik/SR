@@ -276,6 +276,9 @@ public class VehicleControl : MonoBehaviour
 
     void Awake()
     {
+        CarData car = CarSave.CrLoad();
+
+        carSetting.carPower = car.carPower[car.carIndex, car.carUpgrade[car.carIndex, 0]];
 
         NeutralGear = false;
 
