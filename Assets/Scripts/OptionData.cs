@@ -17,12 +17,4 @@ public class OptionData
         isFC = true;
         vol = -40;
     }
-
-    public OptionData (OptionData menu)
-    {
-        currentResolitonIndex = menu.currentResolitonIndex;
-        qualityIndex = menu.qualityIndex;
-        isFC = menu.isFC;
-        vol = menu.vol;
-    }
 }
