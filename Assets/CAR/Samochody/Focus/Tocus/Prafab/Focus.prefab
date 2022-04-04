@@ -1309,8 +1309,8 @@ MonoBehaviour:
     - {fileID: 0}
     springs: 25000
     dampers: 1500
-    carPower: 50
-    shiftPower: 50
+    carPower: 200
+    shiftPower: 400
     brakePower: 12000
     shiftCentre: {x: 0, y: -0.05, z: 0}
     maxSteerAngle: 35

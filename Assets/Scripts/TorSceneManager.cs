@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class TorSceneManager : MonoBehaviour
 {
-    CarData car = CarSave.CrLoad();
+    /*CarData car = CarSave.CrLoad();
     private GameObject Focus;
-    /*
+    
     private void Start()
     {
         if (car.carIndex == 0)
