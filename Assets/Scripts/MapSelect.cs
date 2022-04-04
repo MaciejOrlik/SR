@@ -7,7 +7,7 @@ using TMPro;
 public class MapSelect : MonoBehaviour
 {
     public TextMeshProUGUI mapName;
-    private string[] mapNames = { "1 - Countryside", "2 - ", "3 - ", "4 - " };
+    private string[] mapNames = { "1 - Countryside", "2 - Snowcircle", "3 - ", "4 - " };
     private int mapIndex = 0;
 
     private void Start()
