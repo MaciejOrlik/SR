@@ -147,6 +147,17 @@ public class Garage : MonoBehaviour
         setEngine();
     }
     */
+
+    public void ulepszSilnik()
+    {
+        if (engineValue[carIndex] < 1f)
+        {
+            engineValue[carIndex] = engineValue[carIndex] + 0.34f;
+            setEngine();
+
+        }
+    }
+
     public void ulepszNitro()
     {
         if(nitroValue[carIndex]<1f)
