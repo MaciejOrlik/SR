@@ -1192,7 +1192,7 @@ MonoBehaviour:
     - 1
     LimitBackwardSpeed: 60
     LimitForwardSpeed: 300
-  soundGroupMixer: {fileID: 0}
+  soundGroupMixer: {fileID: -1519721096506949183, guid: c7e8da49650a3fc498331a6184a785f3, type: 2}
   brake: 0
   curTorque: 100
   powerShift: 100

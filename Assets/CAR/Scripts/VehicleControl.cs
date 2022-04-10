@@ -278,7 +278,9 @@ public class VehicleControl : MonoBehaviour
     {
         CarData car = CarSave.CrLoad();
 
-        carSetting.carPower = car.carPower[car.carIndex, car.carUpgrade[car.carIndex, 0]];
+        carSetting.carPower = car.getPower();
+        carSetting.shiftPower = car.getNitro();
+        carSetting.brakePower = car.getBrake();
 
         NeutralGear = false;
 

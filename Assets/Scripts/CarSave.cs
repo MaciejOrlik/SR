@@ -9,7 +9,7 @@ public static class CarSave
     // ZAPIS I ODCZYT PLIKU Z KLASA CarData.cs
     public static CarData CrLoad()
     {
-        string path = Application.persistentDataPath + "/CarSave.sr";   // %appdata%/localLow/DefaultCompany/SR/options.sr
+        string path = Application.persistentDataPath + "/Cars.sr";   // %appdata%/localLow/DefaultCompany/SR/Cars.sr
         if (File.Exists(path))                                          // jesli plik istnieje -> wczytaj
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -30,10 +30,10 @@ public static class CarSave
         }
     }
 
-    public static void CrSave(CarData Car)   //zapisuje klase w %appdata%/localLow/DefaultCompany/SR/options.sr
+    public static void CrSave(CarData Car)   //zapisuje klase w %appdata%/localLow/DefaultCompany/SR/Cars.sr
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/CarSave.sr";
+        string path = Application.persistentDataPath + "/Cars.sr";
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
         formatter.Serialize(fileStream, Car);

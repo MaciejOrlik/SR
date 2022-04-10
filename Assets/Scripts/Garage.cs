@@ -15,20 +15,16 @@ public class Garage : MonoBehaviour
     public GameObject Mercedes;
     public GameObject Focus;
     public GameObject Supra;
-    private int carIndex = 0;
     //CAR STATS
-    /*private float engineValue = 0f;
+    private float engineValue = 0f;
     private float nitroValue = 0f;
-    private float brakeValue = 0f;*/
+    private float brakeValue = 0f;
 
-    private float[] engineValue = { 0f, 0f, 0f, 0f };
-    private float[] nitroValue = { 0f, 0f, 0f, 0f };
-    private float[] brakeValue = { 0f, 0f, 0f, 0f };
+    public CarData car;
 
-    public CarData car = CarSave.CrLoad();
-    
     void Start()
     {
+        car = CarSave.CrLoad();
         carSelect();
     }
 
@@ -46,7 +42,7 @@ public class Garage : MonoBehaviour
         Supra.SetActive(false);
         Porshe.SetActive(false);
         Focus.SetActive(false);
-        switch (carIndex) //Uzueplnic .setActive
+        switch (car.Index) 
         {
             case 0:
                 Focus.SetActive(true);
@@ -81,101 +77,78 @@ public class Garage : MonoBehaviour
         CarSave.CrSave(car);
         SceneManager.LoadScene("Menu");
     }
+    public void revertUpgrade()
+    {
+        car.Upgrade[car.Index, 0] = 0;
+        car.Upgrade[car.Index, 1] = 0;
+        car.Upgrade[car.Index, 2] = 0;
+        setAll();
+    }
     public void quit()
     {
         CarSave.CrSave(car);
         Application.Quit();
     }    
-        
-    // USTAWIANIE WARTOSCI STATYSTYK 
-    private void setEngine ()
-    {
-        engineFill.fillAmount = engineValue[carIndex];
-    }
-    private void setNitro ()
-    {
-        nitroFill.fillAmount = nitroValue[carIndex];
-    }
-    private void setBrake ()
-    {
-        brakeFill.fillAmount = brakeValue[carIndex];
-    }
+
     public void setAll ()
     {
-        setEngine();
-        setNitro();
-        setBrake();
+        engineValue = car.getPowerPercent();
+        nitroValue = car.getNitroPercent();
+        brakeValue = car.getBrakePercent();
+
+        engineFill.fillAmount = engineValue;
+        nitroFill.fillAmount = nitroValue;
+        brakeFill.fillAmount = brakeValue;
     }
 
     public void IncCar() //carIndex ++
     {
-        if (carIndex < 3)
+        if (car.Index < 3)
         {
-            carIndex++;
+            car.Index++;
         }
         else
         {
-            carIndex = 0;
+            car.Index = 0;
         }
         carSelect();
     }
 
     public void DecCar() // carIndex --
     {
-        if (carIndex == 0)
+        if (car.Index == 0)
         {
-            carIndex = 3;
+            car.Index = 3;
         }
         else
         {
-            carIndex--;
+            car.Index--;
         }
         carSelect();
     }
 
 
     // ---------------------------------------------------  ULEPSZANIE ----------------------------------- //
-    /*
-    public void ulepszSilnik()
-    {
-        if (car.carUpgrade[car.carIndex, 0] < 2)
-        {
-            car.carUpgrade[car.carIndex, 0]++;
-        }
-        engineValue = (car.carPW() - 
-            car.carPower[car.carIndex, 0])/50;
-        setEngine();
-    }
-    */
 
-    public void ulepszSilnik()
+    public void ulepszSilnik() 
     {
-        if (engineValue[carIndex] < 1f)
-        {
-            engineValue[carIndex] = engineValue[carIndex] + 0.34f;
-            setEngine();
-
-        }
+        CarSave.CrSave(car);
+        car.upgradePower();
+        setAll();
     }
 
-    public void ulepszNitro()
+    public void ulepszNitro() 
     {
-        if(nitroValue[carIndex]<1f)
-        {
-            nitroValue[carIndex] = nitroValue[carIndex] + 0.34f;
-            setNitro();
-
-        }
+        CarSave.CrSave(car);
+        car.upgradeNitro();
+        setAll();
     }
 
-    public void ulepszHamulce()
+    public void ulepszHamulce() 
     {
-        if (brakeValue[carIndex] < 1f)
-        {
-            brakeValue[carIndex] = brakeValue[carIndex] + 0.34f;
-            setBrake();
-
-        }
+        CarSave.CrSave(car);
+        car.upgradeBrake(); 
+        setAll();
     }
     
 }
