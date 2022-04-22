@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEditor;
 
 public class Garage : MonoBehaviour
 {
@@ -20,7 +22,18 @@ public class Garage : MonoBehaviour
     private float nitroValue = 0f;
     private float brakeValue = 0f;
 
-    public CarData car;
+    private CarData car;
+
+    //LOCKING CARS
+    public GameObject Lock;
+    public Button MapButton;
+    public TextMeshProUGUI MapText;
+
+    //LOCKING CAR UPGRADES
+    public Button engineButton;
+    public Button nitroButton;
+    public Button brakeButton;
+
 
     void Start()
     {
@@ -42,7 +55,8 @@ public class Garage : MonoBehaviour
         Supra.SetActive(false);
         Porshe.SetActive(false);
         Focus.SetActive(false);
-        switch (car.Index) 
+
+        switch (car.Index)
         {
             case 0:
                 Focus.SetActive(true);
@@ -59,6 +73,15 @@ public class Garage : MonoBehaviour
             default:
                 break;
         }
+
+        Lock.SetActive(!car.haveCar());
+        //MapButton.interactable = car.haveCar();               TYMCZASOWO WYL¥CZONE DO CZASU STOWRZENIA SKLEPU
+        MapText.color = car.haveCar() ? Color.white : Color.grey;
+
+        //engineButton.interactable = car.haveCar();
+        //nitroButton.interactable = car.haveCar();
+        //brakeButton.interactable = car.haveCar();
+
         setAll();
     }
     // ZMIANA SCEN
