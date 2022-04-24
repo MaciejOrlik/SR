@@ -29,7 +29,7 @@ Transform:
   m_Children:
   - {fileID: 635761006738686833}
   m_Father: {fileID: 635615720687830109}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &637282471408195907
 GameObject:
@@ -2769,7 +2769,6 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 638869512235403892}
-  - {fileID: 638869512925495047}
   - {fileID: 634407766430169053}
   m_Father: {fileID: 638869512925500299}
   m_RootOrder: 0
@@ -14677,56 +14676,6 @@ Transform:
   m_Father: {fileID: 638869512925500299}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &638869512926001049
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 638869512925495047}
-  - component: {fileID: 638869512920252157}
-  m_Layer: 6
-  m_Name: Shadow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &638869512925495047
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638869512926001049}
-  m_LocalRotation: {x: 0.7071068, y: -0.00000005960465, z: -0, w: 0.70710677}
-  m_LocalPosition: {x: -0.0066681104, y: 2.3799999, z: 0.19999185}
-  m_LocalScale: {x: 0.66666675, y: 0.66666675, z: 0.66666675}
-  m_Children: []
-  m_Father: {fileID: 635615720687830109}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!119 &638869512920252157
-Projector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638869512926001049}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_NearClipPlane: 2.5
-  m_FarClipPlane: 10
-  m_FieldOfView: 80
-  m_AspectRatio: 0.8
-  m_Orthographic: 0
-  m_OrthographicSize: 2
-  m_Material: {fileID: 2100000, guid: 78c0a732ad112a541100162a44295342, type: 2}
-  m_IgnoreLayers:
-    serializedVersion: 2
-    m_Bits: 2
 --- !u!1 &638974863287817763
 GameObject:
   m_ObjectHideFlags: 0
