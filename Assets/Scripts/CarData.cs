@@ -10,7 +10,7 @@ public class CarData
     private float[,] carPower;// new float[4,3];      V - Upgrade value (50-200) 1-CarIndex 2-carUpgradeNumber (0-2)
     private float[,] carNitro;// new float[4,3];      V - Upgrade value (50-200) 1-CarIndex 2-carUpgradeNumber (0-2)
     private float[,] carBrake;// new float[4,3];      V - Upgrade value (50-400) 1-CarIndex 2-carUpgradeNumber (0-2)
-    private bool[] carHave;   // new bool[4];         V - Do you have that car
+    public bool[] carHave;   // new bool[4];         V - Do you have that car
 
     public CarData ()
     {
@@ -75,5 +75,8 @@ public class CarData
 
     public bool haveCar() { return carHave[Index]; }
     public bool haveCar(int indx) { return carHave[indx]; }
+
+    public void setCar(bool set) { carHave[Index] = set; }
+    public void setCar(bool set, int indx) { carHave[indx] = set; }
 
 }

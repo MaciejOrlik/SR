@@ -75,12 +75,12 @@ public class Garage : MonoBehaviour
         }
 
         Lock.SetActive(!car.haveCar());
-        //MapButton.interactable = car.haveCar();               TYMCZASOWO WYL¥CZONE DO CZASU STOWRZENIA SKLEPU
+        MapButton.interactable = car.haveCar();               //TYMCZASOWO WYL¥CZONE DO CZASU STOWRZENIA SKLEPU
         MapText.color = car.haveCar() ? Color.white : Color.grey;
 
-        //engineButton.interactable = car.haveCar();
-        //nitroButton.interactable = car.haveCar();
-        //brakeButton.interactable = car.haveCar();
+        engineButton.interactable = car.haveCar();
+        nitroButton.interactable = car.haveCar();
+        brakeButton.interactable = car.haveCar();
 
         setAll();
     }
@@ -100,13 +100,32 @@ public class Garage : MonoBehaviour
         CarSave.CrSave(car);
         SceneManager.LoadScene("Menu");
     }
+
     public void revertUpgrade()
     {
         car.Upgrade[car.Index, 0] = 0;
         car.Upgrade[car.Index, 1] = 0;
         car.Upgrade[car.Index, 2] = 0;
-        setAll();
+        carSelect();
     }
+
+    public void Sell()
+    {
+        int temp = 0;
+        for (int i =0; i<4 ; i++)
+        {
+            if (car.haveCar(i))
+            {
+                temp++;
+            }
+        }
+        if (temp != 1)
+        {
+            car.setCar(false);
+            revertUpgrade();
+        }
+    }
+
     public void quit()
     {
         CarSave.CrSave(car);
