@@ -19,16 +19,16 @@ public class carSpawn : MonoBehaviour
         switch (car.Index)
         {
             case 0:
-                Instantiate(Focus, SpawnPlace.transform.position, Quaternion.identity);
+                Instantiate(Focus, SpawnPlace.transform.position, SpawnPlace.transform.rotation);
                 break;
             case 1:
-
+                Instantiate(Supra, SpawnPlace.transform.position, SpawnPlace.transform.rotation);
                 break;
             case 2:
-
+                Instantiate(Mercedes, SpawnPlace.transform.position, SpawnPlace.transform.rotation);
                 break;
             case 3:
-
+                Instantiate(Porche, SpawnPlace.transform.position, SpawnPlace.transform.rotation);
                 break;
             default:
                 break;

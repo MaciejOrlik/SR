@@ -90,7 +90,7 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
-        //target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
 
         carScript = (VehicleControl)target.GetComponent<VehicleControl>();
 
