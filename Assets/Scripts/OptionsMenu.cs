@@ -104,13 +104,13 @@ public class OptionsMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
         vol = volume;
-        audioMixer.SetFloat("Volume", volume);
+        audioMixer.SetFloat("Sound", volume);
     }
 
     public void SetSlider() //Ustawia graficzna wartosc slidera
     {
         float value;
-        bool result = audioMixer.GetFloat("Volume", out value);
+        bool result = audioMixer.GetFloat("Sound", out value);
         if (result)
         {
             volSlider.value = value;

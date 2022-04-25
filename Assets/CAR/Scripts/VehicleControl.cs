@@ -131,6 +131,8 @@ public class VehicleControl : MonoBehaviour
     // Kondor - AudioMixer
 
     public AudioMixerGroup soundGroupMixer;
+    public AudioMixerGroup musicGroupMixer;
+    public AudioMixer audioMixer;
 
 
     [System.Serializable]
@@ -281,6 +283,10 @@ public class VehicleControl : MonoBehaviour
         carSetting.carPower = car.getPower();
         carSetting.shiftPower = car.getNitro();
         carSetting.brakePower = car.getBrake();
+
+        OptionData optionData = OptionSave.OpLoad();
+
+        audioMixer.SetFloat("Sound", optionData.vol);
 
         carSounds.HighEngine.outputAudioMixerGroup = soundGroupMixer;
         carSounds.LowEngine.outputAudioMixerGroup = soundGroupMixer;

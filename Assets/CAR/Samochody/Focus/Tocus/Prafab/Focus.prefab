@@ -1148,7 +1148,6 @@ GameObject:
   - component: {fileID: 2118132154384222317}
   - component: {fileID: 2118132154380735563}
   - component: {fileID: 2118132154390987689}
-  - component: {fileID: 1150231994365747587}
   m_Layer: 6
   m_Name: Focus
   m_TagString: Player
@@ -1280,6 +1279,8 @@ MonoBehaviour:
     LimitBackwardSpeed: 60
     LimitForwardSpeed: 300
   soundGroupMixer: {fileID: -1519721096506949183, guid: c7e8da49650a3fc498331a6184a785f3, type: 2}
+  musicGroupMixer: {fileID: -6227713891923614820, guid: c7e8da49650a3fc498331a6184a785f3, type: 2}
+  audioMixer: {fileID: 24100000, guid: c7e8da49650a3fc498331a6184a785f3, type: 2}
   brake: 0
   curTorque: 100
   powerShift: 100
@@ -1292,20 +1293,6 @@ MonoBehaviour:
   accelFwd: 0
   accelBack: 0
   steerAmount: 0
---- !u!114 &1150231994365747587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118132154383944449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4e232bd0094ace4b8f8ffc12051eaa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  laptime: 0
-  Ltime: {fileID: 0}
 --- !u!1 &2118132154383948675
 GameObject:
   m_ObjectHideFlags: 0
