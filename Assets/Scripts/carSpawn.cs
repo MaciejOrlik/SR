@@ -13,7 +13,7 @@ public class carSpawn : MonoBehaviour
     public GameObject Mercedes;
     public GameObject Porche;
 
-    void Start()
+    private void Awake()
     {
         car = CarSave.CrLoad();
         switch (car.Index)
