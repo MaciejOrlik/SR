@@ -282,6 +282,12 @@ public class VehicleControl : MonoBehaviour
         carSetting.shiftPower = car.getNitro();
         carSetting.brakePower = car.getBrake();
 
+        carSounds.HighEngine.outputAudioMixerGroup = soundGroupMixer;
+        carSounds.LowEngine.outputAudioMixerGroup = soundGroupMixer;
+        carSounds.switchGear.outputAudioMixerGroup = soundGroupMixer;
+        carSounds.nitro.outputAudioMixerGroup= soundGroupMixer;
+        carSounds.IdleEngine.outputAudioMixerGroup= soundGroupMixer;
+
         NeutralGear = false;
 
         myRigidbody = transform.GetComponent<Rigidbody>();

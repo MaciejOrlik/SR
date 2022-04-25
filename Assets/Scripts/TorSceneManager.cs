@@ -21,9 +21,5 @@ public class TorSceneManager : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("Garage");
-        }
     }
 }

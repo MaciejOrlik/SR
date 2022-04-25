@@ -11,7 +11,7 @@ public class MenuPause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(GameIsPaused)
             {
@@ -42,7 +42,8 @@ public class MenuPause : MonoBehaviour
 
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        GameIsPaused = false;
+        SceneManager.LoadScene("Garage");
     }
     public void QuitGame()
     {
