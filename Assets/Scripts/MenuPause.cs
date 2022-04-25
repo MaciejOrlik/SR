@@ -44,6 +44,7 @@ public class MenuPause : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         SceneManager.LoadScene("Garage");
+        
     }
     public void QuitGame()
     {
