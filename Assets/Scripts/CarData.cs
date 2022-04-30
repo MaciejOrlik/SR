@@ -5,15 +5,19 @@ using UnityEngine;
 [System.Serializable]
 public class CarData
 {
+    public int Money;
     public int Index;//                           0-Focus 1-Supra 2-Merc 3-Lambo
     public int[,] Upgrade = new int[4,3];//       V - Upgrade number (0-2)   1-CarIndex 2-UpgradeType(engine|nitro|brake)
     private float[,] carPower;// new float[4,3];      V - Upgrade value (50-200) 1-CarIndex 2-carUpgradeNumber (0-2)
     private float[,] carNitro;// new float[4,3];      V - Upgrade value (50-200) 1-CarIndex 2-carUpgradeNumber (0-2)
     private float[,] carBrake;// new float[4,3];      V - Upgrade value (50-400) 1-CarIndex 2-carUpgradeNumber (0-2)
     public bool[] carHave;   // new bool[4];         V - Do you have that car
+    
 
     public CarData ()
     {
+
+        Money = 0;
         Index = 0;
         for (int i = 0; i < 4; i++)
         {
