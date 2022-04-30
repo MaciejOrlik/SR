@@ -7,8 +7,13 @@ public class MenuPause : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject musicMenu;
+    public AudioSource pauseMusic;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        musicManager.Race();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -22,7 +27,6 @@ public class MenuPause : MonoBehaviour
                 Pause();
             }
         }
-        
     }
 
     public void Resume()

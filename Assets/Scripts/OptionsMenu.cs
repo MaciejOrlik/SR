@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
 using TMPro;
 using System.Linq;
 
@@ -14,20 +12,33 @@ public class OptionsMenu : MonoBehaviour
 {
     public GameObject optionsMenu;
     public TMPro.TMP_Dropdown dropDownRes;
+    public GameObject musicMenu;
     public AudioMixer audioMixer;
     public TextMeshProUGUI graph;
-    public Slider volSlider;
+    public Slider soundSlider;
+    public Slider musicSlider;
     public Toggle FCToggle;
     private int currentResolitonIndex;
     private int qualityIndex;
     private bool isFC;
     private float vol;
+    private float mus;
 
     OptionData optionData;
 
     Resolution[] resolutions;
 
     private static string[] quality = { "LOW", "MEDIUM", "HIGH" };
+
+
+    private void Awake()
+    {
+        if (!musicManager.isMenuPlaying())
+        {
+            musicMenu.GetComponent<AudioSource>().Play();
+            musicManager.DDOL(musicMenu);
+        }
+    }
 
     private void Start()
     {
@@ -78,6 +89,7 @@ public class OptionsMenu : MonoBehaviour
         //Ustaw graficznie wartosci na podstawie opcji
         SetFC(isFC);
         SetVolume(vol);
+        SetMusic(mus);
         SetSlider();
         SetQuality();
         SetResolution(currentResolitonIndex);   
@@ -90,6 +102,7 @@ public class OptionsMenu : MonoBehaviour
         optionData.qualityIndex = qualityIndex;
         optionData.isFC = isFC;
         optionData.vol = vol;
+        optionData.mus = mus;
         OptionSave.OpSave(optionData);  //Zapis w pliku OptionSave.cs
     }
 
@@ -99,23 +112,27 @@ public class OptionsMenu : MonoBehaviour
         qualityIndex =optionData.qualityIndex;
         isFC=optionData.isFC;
         vol=optionData.vol;
+        mus=optionData.mus;
     }
 
     public void SetVolume(float volume)
     {
         vol = volume;
-        audioMixer.SetFloat("Sound", volume);
+        float set = (((volume + 80) / 80) * 9) + 1;
+        audioMixer.SetFloat("Sound", (Mathf.Log10(set)-1)*80);
+    }
+
+    public void SetMusic(float volume)
+    {
+        mus = volume;
+        float set = (((volume + 80) / 80) * 9) + 1;
+        audioMixer.SetFloat("Music", (Mathf.Log10(set) - 1) * 80);
     }
 
     public void SetSlider() //Ustawia graficzna wartosc slidera
     {
-        float value;
-        bool result = audioMixer.GetFloat("Sound", out value);
-        if (result)
-        {
-            volSlider.value = value;
-        }
-        else volSlider.value = 0;
+        soundSlider.value = vol;
+        musicSlider.value = mus;
     }
 
     public void SetQuality()

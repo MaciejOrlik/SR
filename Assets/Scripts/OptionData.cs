@@ -9,6 +9,7 @@ public class OptionData
     public int qualityIndex;
     public bool isFC;
     public float vol;
+    public float mus;
 
     public OptionData ()
     {
@@ -16,5 +17,6 @@ public class OptionData
         qualityIndex = 1;
         isFC = true;
         vol = -40;
+        mus = -40;
     }
 }

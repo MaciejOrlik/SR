@@ -344,9 +344,6 @@ public class VehicleControl : MonoBehaviour
         }
     }
 
-
-
-
     public void ShiftUp()
     {
         float now = Time.timeSinceLevelLoad;

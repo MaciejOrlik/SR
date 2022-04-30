@@ -37,6 +37,7 @@ public class Garage : MonoBehaviour
 
     void Start()
     {
+        musicManager.Garage();
         car = CarSave.CrLoad();
         carSelect();
     }

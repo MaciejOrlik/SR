@@ -47,6 +47,7 @@ public class CarSpawnDesert : MonoBehaviour
             default:
                 break;
         }
+
     }
 
 
