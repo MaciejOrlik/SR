@@ -152,6 +152,11 @@ public class OptionsMenu : MonoBehaviour
         Screen.fullScreen = isFullscreen;
     }
 
+    public void SetFPSCounter (bool isFPS)
+    {
+
+    }
+
     public void SetResolution(int resolutionIndex) // Bierze WIDTHxHEIGHT i ustawia
     {
         currentResolitonIndex = resolutionIndex;
