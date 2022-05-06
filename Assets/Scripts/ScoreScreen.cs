@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class ScoreScreen : MonoBehaviour
 {
@@ -10,12 +11,22 @@ public class ScoreScreen : MonoBehaviour
 	public GameObject MinuteDisplay;
 	public GameObject SecondDisplay;
 	public GameObject MilliDisplay;
-	void OnTriggerEnter(Collider other)
+	public AudioMixer sound;
+	private OptionData data;
+
+    private void Start()
+    {
+		data = OptionSave.OpLoad();
+    }
+    void OnTriggerEnter(Collider other)
     {
         if (other)
         {
             Score.SetActive(true);
             Time.timeScale = 0f;
+
+			sound.SetFloat("Sound", -80);
+			sound.SetFloat("Volume", 6);
 
 			if (LapTimeManager.SecondCount <= 9)
 			{
@@ -50,7 +61,9 @@ public class ScoreScreen : MonoBehaviour
 
 	{
 		Time.timeScale = 1f;
-		
+		float set = (((data.vol + 80) / 80) * 9) + 1;
+        sound.SetFloat("Sound", (Mathf.Log10(set) - 1) * 80);
+        sound.SetFloat("Volume", 0);
 		SceneManager.LoadScene("Garage");
 
 	}

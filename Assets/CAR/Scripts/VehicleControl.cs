@@ -286,8 +286,6 @@ public class VehicleControl : MonoBehaviour
 
         OptionData optionData = OptionSave.OpLoad();
 
-        audioMixer.SetFloat("Sound", optionData.vol);
-
         carSounds.HighEngine.outputAudioMixerGroup = soundGroupMixer;
         carSounds.LowEngine.outputAudioMixerGroup = soundGroupMixer;
         carSounds.switchGear.outputAudioMixerGroup = soundGroupMixer;
