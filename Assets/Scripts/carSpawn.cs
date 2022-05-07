@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class carSpawn : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class carSpawn : MonoBehaviour
     public GameObject check6;
     public GameObject check7;
     public GameObject check8;
+
+
 
     private void Awake()
     {
@@ -54,11 +57,11 @@ public class carSpawn : MonoBehaviour
     {
         if (Input.GetButtonDown("Reset"))
         {
-            
+
             if (check1.activeSelf)
             {
                 Player.transform.position = finish.transform.position;
-                Player.transform.rotation = Quaternion.Euler(0,-15,0);
+                Player.transform.rotation = Quaternion.Euler(0, -15, 0);
             }
             if (check2.activeSelf)
             {
@@ -102,7 +105,13 @@ public class carSpawn : MonoBehaviour
             }
 
         }
+
+
         
+
+
+
+
 
     }
 }
