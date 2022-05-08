@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public static class musicManager
 {
@@ -34,5 +35,10 @@ public static class musicManager
             return menuMusic.GetComponent<AudioSource>().isPlaying;
         }
         else return false;
+    }
+    
+    public static void fpsCount(TextMeshProUGUI fpstext)
+    {
+        
     }
 }
