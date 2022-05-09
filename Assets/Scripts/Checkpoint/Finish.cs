@@ -8,10 +8,11 @@ public class Finish : MonoBehaviour
     public GameObject Check1;
     public GameObject finish;
 
+    LapComplete lc;
+
     void OnTriggerEnter()
     {
         Check1.SetActive(true);
         finish.SetActive(false);
-
     }
 }

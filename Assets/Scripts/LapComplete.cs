@@ -16,13 +16,14 @@ public class LapComplete : MonoBehaviour
 
 	public AudioMixer sound;
 	private OptionData data;
+	private bool end = false;
 
-	public string time;
+	public string time = "00:00.0";
 	public string min;
 	public string sec;
 	public string mili;
 
-
+    
     private void Awake()
     {
 		data = OptionSave.OpLoad();
@@ -57,7 +58,7 @@ public class LapComplete : MonoBehaviour
 
 		time = min + sec + mili;
 
-		Debug.Log(time);
+		//Debug.Log(time);
 		LapTimeManager.MinuteCount = 0;
 		LapTimeManager.SecondCount = 0;
 		LapTimeManager.MilliCount = 0;
@@ -85,4 +86,6 @@ public class LapComplete : MonoBehaviour
 	{
 		Application.Quit();
 	}
+
+	
 }

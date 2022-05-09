@@ -12,6 +12,8 @@ public class ScoreShow : MonoBehaviour
 
     ScoreData sd = new ScoreData();
 
+
+
     private void Start()
     {
         for(int i=0; i<8;i++)
@@ -21,4 +23,6 @@ public class ScoreShow : MonoBehaviour
             times[i].text = sd.wynik[nr_mapy - 1, i, 2];
         }
     }
+
+    
 }
