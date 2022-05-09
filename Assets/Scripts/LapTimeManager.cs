@@ -14,8 +14,14 @@ public class LapTimeManager : MonoBehaviour
 	public GameObject SecondBox;
 	public GameObject MilliBox;
 
+    private void Start()
+    {
+		LapTimeManager.MinuteCount = 0;
+		LapTimeManager.SecondCount = 0;
+		LapTimeManager.MilliCount = 0;
+	}
 
-	void Update()
+    void Update()
 	{
 		MilliCount += Time.deltaTime * 10;
 		MilliDisplay = MilliCount.ToString("F0");

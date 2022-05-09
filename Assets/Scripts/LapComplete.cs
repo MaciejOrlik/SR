@@ -29,6 +29,8 @@ public class LapComplete : MonoBehaviour
 		data = OptionSave.OpLoad();
     }
 
+   
+
     void OnTriggerEnter()
 	{
 		if (LapTimeManager.MinuteCount <= 9)
@@ -58,18 +60,19 @@ public class LapComplete : MonoBehaviour
 
 		time = min + sec + mili;
 
-		//Debug.Log(time);
+		Debug.Log(time);
 		LapTimeManager.MinuteCount = 0;
 		LapTimeManager.SecondCount = 0;
 		LapTimeManager.MilliCount = 0;
 
 
-		if (time != "00:00.0")
+		if (TimerCheck.timercheck == true)
 		{
 			scorecanvas.SetActive(true);
 			Time.timeScale = 0f;
 			sound.SetFloat("Sound", -80);
 			sound.SetFloat("Volume", 6);
+			TimerCheck.timercheck = false;
 		}
 
 	}
