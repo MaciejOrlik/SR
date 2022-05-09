@@ -18,6 +18,7 @@ public class OptionsMenu : MonoBehaviour
     public Slider soundSlider;
     public Slider musicSlider;
     public Toggle FCToggle;
+    public Toggle FPSToggle;
     private int currentResolitonIndex;
     private int qualityIndex;
     private bool isFC;
@@ -88,6 +89,7 @@ public class OptionsMenu : MonoBehaviour
 
         //Ustaw graficznie wartosci na podstawie opcji
         SetFC(isFC);
+        SetFPSCounter(optionData.isFPS);
         SetVolume(vol);
         SetMusic(mus);
         SetSlider();
@@ -154,7 +156,9 @@ public class OptionsMenu : MonoBehaviour
 
     public void SetFPSCounter (bool isFPS)
     {
-
+        optionData.isFPS = isFPS;
+        FPSToggle.isOn = isFPS;
+        Save();
     }
 
     public void SetResolution(int resolutionIndex) // Bierze WIDTHxHEIGHT i ustawia

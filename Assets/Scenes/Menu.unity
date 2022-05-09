@@ -4716,6 +4716,7 @@ MonoBehaviour:
   soundSlider: {fileID: 1288147533}
   musicSlider: {fileID: 1890050484}
   FCToggle: {fileID: 669849723}
+  FPSToggle: {fileID: 1594294331}
 --- !u!1 &1668647594
 GameObject:
   m_ObjectHideFlags: 0

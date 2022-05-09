@@ -13,10 +13,15 @@ public class FPSCounter : MonoBehaviour
     private int frameCount;
     public bool fpscount = true;
 
+    private OptionData data;
     // Update is called once per frame
+    private void Start()
+    {
+        data = OptionSave.OpLoad();
+    }
     void Update()
     {
-        if(fpscount == true)
+        if(data.isFPS == true)
         {
             time += Time.deltaTime;
 

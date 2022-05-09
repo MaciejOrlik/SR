@@ -10,6 +10,7 @@ public class OptionData
     public bool isFC;
     public float vol;
     public float mus;
+    public bool isFPS;
 
     public OptionData ()
     {
@@ -18,5 +19,6 @@ public class OptionData
         isFC = true;
         vol = -40;
         mus = -40;
+        isFPS = false;
     }
 }
