@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class LapComplete : MonoBehaviour
 {
@@ -13,14 +14,21 @@ public class LapComplete : MonoBehaviour
 
 	public GameObject scorecanvas;
 
+	public AudioMixer sound;
+	private OptionData data;
+
 	public string time;
 	public string min;
 	public string sec;
 	public string mili;
 
 
+    private void Awake()
+    {
+		data = OptionSave.OpLoad();
+    }
 
-	void OnTriggerEnter()
+    void OnTriggerEnter()
 	{
 		if (LapTimeManager.MinuteCount <= 9)
 		{
@@ -59,16 +67,18 @@ public class LapComplete : MonoBehaviour
 		{
 			scorecanvas.SetActive(true);
 			Time.timeScale = 0f;
-
-
+			sound.SetFloat("Sound", -80);
+			sound.SetFloat("Volume", 6);
 		}
-
 
 	}
 	public void LoadMenu()
 	{
 		scorecanvas.SetActive(false);
 		Time.timeScale = 1f;
+		float set = (((data.vol + 80) / 80) * 9) + 1;
+		sound.SetFloat("Sound", (Mathf.Log10(set) - 1) * 80);
+		sound.SetFloat("Volume", 0);
 		SceneManager.LoadScene("Garage");
 	}
 	public void QuitGame()
