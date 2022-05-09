@@ -23,7 +23,10 @@ public class LapComplete : MonoBehaviour
 	public string sec;
 	public string mili;
 
-    
+	public ScoreShow ss;
+
+
+
     private void Awake()
     {
 		data = OptionSave.OpLoad();
@@ -78,6 +81,7 @@ public class LapComplete : MonoBehaviour
 	}
 	public void LoadMenu()
 	{
+		ss.zapiszTabliceWynikow();
 		scorecanvas.SetActive(false);
 		Time.timeScale = 1f;
 		float set = (((data.vol + 80) / 80) * 9) + 1;
@@ -87,8 +91,12 @@ public class LapComplete : MonoBehaviour
 	}
 	public void QuitGame()
 	{
+		ss.zapiszTabliceWynikow();
 		Application.Quit();
 	}
 
-	
+	public string sendTime()
+    {
+		return time;
+    }
 }

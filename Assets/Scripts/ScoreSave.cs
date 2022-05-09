@@ -18,7 +18,7 @@ public static class ScoreSave
             ScoreData data = formatter.Deserialize(fileStream) as ScoreData;
             fileStream.Close();
 
-            Debug.Log("Wczytano");
+            Debug.Log("Wczytano leaderboard");
             return data;
         }
         else // Jesli nie istneje to default
@@ -40,4 +40,3 @@ public static class ScoreSave
         fileStream.Close();
     }
 }
-
