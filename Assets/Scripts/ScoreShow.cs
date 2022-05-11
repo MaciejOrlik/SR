@@ -18,6 +18,7 @@ public class ScoreShow : MonoBehaviour
 
     private bool raz = true;
 
+    public InputField inputField;
     public Text input;
 
     private void Start()
@@ -55,7 +56,7 @@ public class ScoreShow : MonoBehaviour
             times[miejsce].text = lc.sendTime();
             Debug.Log("zmiana");
             raz = false;
-           
+           inputField.ActivateInputField();
         }
         names[miejsce].text = input.text;
                 
@@ -76,11 +77,7 @@ public class ScoreShow : MonoBehaviour
         
         for (int i = 0; i < 8; i++)
         {
-            if (DateTime.Parse("00:" + lc.sendTime()) > DateTime.Parse("00:" + times[i].text))
-            {
-                i++;
-            }
-            else
+            if (DateTime.Parse("00:" + lc.sendTime()) < DateTime.Parse("00:" + times[i].text))
             {
                 temp = i;
                 break;
