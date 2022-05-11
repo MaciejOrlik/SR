@@ -11,6 +11,7 @@ using System.Linq;
 public class OptionsMenu : MonoBehaviour
 {
     public GameObject optionsMenu;
+    public GameObject creditsMenu;
     public TMPro.TMP_Dropdown dropDownRes;
     public GameObject musicMenu;
     public AudioMixer audioMixer;
@@ -184,10 +185,32 @@ public class OptionsMenu : MonoBehaviour
         }
         else
         {
+            if (creditsMenu.activeSelf)
+            {
+                creditsMenu.SetActive(false);
+            }
             optionsMenu.SetActive(true);
         }
         Save();
     }
+
+    public void Credits()
+    {
+        if (creditsMenu.activeSelf)
+        {
+            creditsMenu.SetActive(false); 
+        }
+        else
+        {
+            if (optionsMenu.activeSelf)
+            {
+                optionsMenu.SetActive(false);
+            }
+            creditsMenu.SetActive(true);
+        }
+        Save();
+    }
+
     public void QuitGame()
     {
         Save();
