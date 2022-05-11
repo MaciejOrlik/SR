@@ -34,6 +34,8 @@ public class Garage : MonoBehaviour
     public Button nitroButton;
     public Button brakeButton;
 
+    public TextMeshProUGUI currentMoney;
+
 
     void Start()
     {
@@ -44,6 +46,8 @@ public class Garage : MonoBehaviour
 
     private void Update()
     {
+        currentMoney.text = car.getMoney().ToString();
+        
         if (Input.GetKey(KeyCode.Escape)) // ESC hierarchi MENU <- GARAZ <- INNE OKNA
         {
             SceneManager.LoadScene("Menu");
@@ -175,23 +179,35 @@ public class Garage : MonoBehaviour
 
     public void ulepszSilnik() 
     {
-        CarSave.CrSave(car);
-        car.upgradePower();
-        setAll();
+        if (car.getMoney() >= 100 && car.Upgrade[car.Index, 0] < 2)
+        {
+            car.subtractMoney(100);
+            CarSave.CrSave(car);
+            car.upgradePower();
+            setAll();
+        }
     }
 
     public void ulepszNitro() 
     {
-        CarSave.CrSave(car);
-        car.upgradeNitro();
-        setAll();
+        if (car.getMoney() >= 100 && car.Upgrade[car.Index, 1] < 2)
+        {
+            car.subtractMoney(100);
+            CarSave.CrSave(car);
+            car.upgradeNitro();
+            setAll();
+        }
     }
 
     public void ulepszHamulce() 
     {
-        CarSave.CrSave(car);
-        car.upgradeBrake(); 
-        setAll();
+        if (car.getMoney() >= 100 && car.Upgrade[car.Index, 2] <2)
+        {
+            car.subtractMoney(100);
+            CarSave.CrSave(car);
+            car.upgradeBrake();
+            setAll();
+        }
     }
     
 }

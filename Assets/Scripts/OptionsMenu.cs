@@ -222,6 +222,11 @@ public class OptionsMenu : MonoBehaviour
         Save();
         optionsMenu.SetActive(false);
     }
+    public void BackCredits()
+    {
+        Save();
+        creditsMenu.SetActive(false);
+    }
     public void IncQual()   //qualityindex ++
     {
         if (qualityIndex < 2)

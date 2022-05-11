@@ -8,7 +8,7 @@ using TMPro;
 public class Shop : MonoBehaviour
 {
     private string[] carNames = { "TOCUS", "KUPRA", "BOSSCAR", "SUPERCAR" };
-    public int[] carPrice = { 0, 0, 0, 0 };
+    private int[] carPrice = { 100, 500, 800, 1000 };
     private CarData car;
 
 
@@ -23,6 +23,8 @@ public class Shop : MonoBehaviour
     public TextMeshProUGUI nameTag;
     public TextMeshProUGUI priceTag;
 
+    public TextMeshProUGUI currentMoney;
+
 
     private void Start()
     {
@@ -32,6 +34,9 @@ public class Shop : MonoBehaviour
 
     void Update()
     {
+        //currentMoney.text = car.getMoney().ToString();
+
+
         if (Input.GetKey(KeyCode.Escape))
         {
             CarSave.CrSave(car);
@@ -41,8 +46,13 @@ public class Shop : MonoBehaviour
 
     public void Buy()
     {
-        car.setCar(true);
-        carSelect();
+        if(car.getMoney()>=carPrice[car.Index])
+        {
+            car.subtractMoney(carPrice[car.Index]);
+            car.setCar(true);
+            carSelect();
+            CarSave.CrSave(car);
+        }
     }    
 
     public void carSelect() // wybor samochodu na podstawie indexu <0,3>

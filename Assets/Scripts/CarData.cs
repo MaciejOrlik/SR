@@ -17,7 +17,7 @@ public class CarData
     public CarData ()
     {
 
-        Money = 0;
+        Money = 1000000000;
         Index = 0;
         for (int i = 0; i < 4; i++)
         {
@@ -82,5 +82,9 @@ public class CarData
 
     public void setCar(bool set) { carHave[Index] = set; }
     public void setCar(bool set, int indx) { carHave[indx] = set; }
+
+    public int getMoney() { return Money;  }
+    public void addMoney(int amount) { Money += amount;  }
+    public void subtractMoney(int amount) { Money -= amount; }
 
 }
