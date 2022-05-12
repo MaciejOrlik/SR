@@ -34,7 +34,7 @@ public class Shop : MonoBehaviour
 
     void Update()
     {
-        //currentMoney.text = car.getMoney().ToString();
+        currentMoney.text = car.getMoney().ToString();
 
 
         if (Input.GetKey(KeyCode.Escape))

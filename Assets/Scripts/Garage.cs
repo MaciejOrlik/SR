@@ -128,6 +128,10 @@ public class Garage : MonoBehaviour
         {
             car.setCar(false);
             revertUpgrade();
+            if (car.Index == 0) car.addMoney(50);
+            else if (car.Index == 1) car.addMoney(250);
+            else if (car.Index == 2) car.addMoney(400);
+            else if (car.Index == 3) car.addMoney(500);
         }
     }
 
