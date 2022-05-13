@@ -25,6 +25,7 @@ public class Shop : MonoBehaviour
 
     public TextMeshProUGUI currentMoney;
 
+    
 
     private void Start()
     {

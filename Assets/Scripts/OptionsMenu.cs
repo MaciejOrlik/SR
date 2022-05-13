@@ -6,12 +6,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 
 public class OptionsMenu : MonoBehaviour
 {
     public GameObject optionsMenu;
     public GameObject creditsMenu;
+    public GameObject controlsMenu;
     public TMPro.TMP_Dropdown dropDownRes;
     public GameObject musicMenu;
     public AudioMixer audioMixer;
@@ -31,6 +33,14 @@ public class OptionsMenu : MonoBehaviour
     Resolution[] resolutions;
 
     private static string[] quality = { "LOW", "MEDIUM", "HIGH" };
+
+
+    //eventsystem
+    public GameObject ButtonPlay;
+
+
+
+
 
 
     private void Awake()
@@ -98,6 +108,11 @@ public class OptionsMenu : MonoBehaviour
         SetResolution(currentResolitonIndex);   
 
     }
+
+    
+
+
+
 
     public void Save()  // Zapisuje dane klasy do pliku
     {
@@ -181,14 +196,11 @@ public class OptionsMenu : MonoBehaviour
     {
         if (optionsMenu.activeSelf)
         {
-            optionsMenu.SetActive(false);
+            HideMenus();
         }
         else
         {
-            if (creditsMenu.activeSelf)
-            {
-                creditsMenu.SetActive(false);
-            }
+            HideMenus();
             optionsMenu.SetActive(true);
         }
         Save();
@@ -198,19 +210,26 @@ public class OptionsMenu : MonoBehaviour
     {
         if (creditsMenu.activeSelf)
         {
-            creditsMenu.SetActive(false); 
+            HideMenus();
         }
         else
         {
-            if (optionsMenu.activeSelf)
-            {
-                optionsMenu.SetActive(false);
-            }
+            HideMenus();
             creditsMenu.SetActive(true);
         }
-        Save();
     }
-
+    public void Controls()
+    {
+        if (controlsMenu.activeSelf)
+        {
+            HideMenus();
+        }
+        else
+        {
+            HideMenus();
+            controlsMenu.SetActive(true);
+        }
+    }
     public void QuitGame()
     {
         Save();
@@ -219,13 +238,17 @@ public class OptionsMenu : MonoBehaviour
 
     public void Back()
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(ButtonPlay);
         Save();
-        optionsMenu.SetActive(false);
+        HideMenus();
     }
-    public void BackCredits()
+
+    public void HideMenus()
     {
-        Save();
+        optionsMenu.SetActive(false);
         creditsMenu.SetActive(false);
+        controlsMenu.SetActive(false);
     }
     public void IncQual()   //qualityindex ++
     {

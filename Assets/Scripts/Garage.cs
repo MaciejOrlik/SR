@@ -37,6 +37,9 @@ public class Garage : MonoBehaviour
     public TextMeshProUGUI currentMoney;
 
 
+
+
+
     void Start()
     {
         musicManager.Garage();
@@ -46,6 +49,7 @@ public class Garage : MonoBehaviour
 
     private void Update()
     {
+
         currentMoney.text = car.getMoney().ToString();
         
         if (Input.GetKey(KeyCode.Escape)) // ESC hierarchi MENU <- GARAZ <- INNE OKNA
