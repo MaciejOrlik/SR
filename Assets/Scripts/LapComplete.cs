@@ -25,6 +25,8 @@ public class LapComplete : MonoBehaviour
 
 	public ScoreShow ss;
 
+	public int coin;
+	public int allcoins;
 
 
     private void Awake()
@@ -68,6 +70,9 @@ public class LapComplete : MonoBehaviour
 		LapTimeManager.SecondCount = 0;
 		LapTimeManager.MilliCount = 0;
 
+		allcoins = coin;
+		Debug.Log(allcoins);
+
 
 		if (TimerCheck.timercheck == true)
 		{
@@ -77,6 +82,10 @@ public class LapComplete : MonoBehaviour
 			sound.SetFloat("Sound", -80);
 			sound.SetFloat("Volume", 6);
 			TimerCheck.timercheck = false;
+
+
+			
+
 		}
 
 	}

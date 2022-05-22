@@ -51,7 +51,6 @@ public static class musicManager
     
     public static void RaceUptade()
     {
-        Debug.Log(gameMusicIntro.GetComponent<AudioSource>().isPlaying.ToString() + isRaceActive.ToString() + gameMusicMid.GetComponent<AudioSource>().isPlaying.ToString());
         if (!gameMusicIntro.GetComponent<AudioSource>().isPlaying)
         {
             if (isRaceActive)
