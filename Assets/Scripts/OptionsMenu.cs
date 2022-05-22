@@ -16,6 +16,9 @@ public class OptionsMenu : MonoBehaviour
     public GameObject controlsMenu;
     public TMPro.TMP_Dropdown dropDownRes;
     public GameObject musicMenu;
+    public GameObject musicGameIntro;
+    public GameObject musicGameMid;
+    public GameObject musicGameOutro;
     public AudioMixer audioMixer;
     public TextMeshProUGUI graph;
     public Slider soundSlider;
@@ -27,6 +30,9 @@ public class OptionsMenu : MonoBehaviour
     private bool isFC;
     private float vol;
     private float mus;
+    public AudioClip r_Intro;
+    public AudioClip r_Mid;
+    public AudioClip r_Outro;
 
     OptionData optionData;
 
@@ -34,14 +40,8 @@ public class OptionsMenu : MonoBehaviour
 
     private static string[] quality = { "LOW", "MEDIUM", "HIGH" };
 
-
     //eventsystem
     public GameObject ButtonPlay;
-
-
-
-
-
 
     private void Awake()
     {
@@ -49,6 +49,7 @@ public class OptionsMenu : MonoBehaviour
         {
             musicMenu.GetComponent<AudioSource>().Play();
             musicManager.DDOL(musicMenu);
+            musicManager.DDOLTWO(musicGameIntro, musicGameMid, musicGameOutro);
         }
     }
 
@@ -108,11 +109,6 @@ public class OptionsMenu : MonoBehaviour
         SetResolution(currentResolitonIndex);   
 
     }
-
-    
-
-
-
 
     public void Save()  // Zapisuje dane klasy do pliku
     {

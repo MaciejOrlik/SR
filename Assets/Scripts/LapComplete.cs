@@ -73,6 +73,7 @@ public class LapComplete : MonoBehaviour
 		{
 			scorecanvas.SetActive(true);
 			Time.timeScale = 0f;
+			musicManager.RaceFinish();
 			sound.SetFloat("Sound", -80);
 			sound.SetFloat("Volume", 6);
 			TimerCheck.timercheck = false;

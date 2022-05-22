@@ -18,6 +18,7 @@ public class MenuPause : MonoBehaviour
     }
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(GameIsPaused)
@@ -29,6 +30,7 @@ public class MenuPause : MonoBehaviour
                 Pause();
             }
         }
+        musicManager.RaceUptade();
     }
 
     public void Resume()
