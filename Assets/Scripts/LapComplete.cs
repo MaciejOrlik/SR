@@ -71,7 +71,7 @@ public class LapComplete : MonoBehaviour
 		LapTimeManager.MilliCount = 0;
 
 		allcoins = coin;
-		Debug.Log(allcoins);
+		
 
 
 		if (TimerCheck.timercheck == true)
@@ -108,5 +108,10 @@ public class LapComplete : MonoBehaviour
 	public string sendTime()
     {
 		return time;
+    }
+
+	public int sendCoin()
+    {
+		return allcoins;
     }
 }

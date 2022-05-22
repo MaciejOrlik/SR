@@ -62,7 +62,9 @@ public class ScoreShow : MonoBehaviour
                     cars[miejsce].text = "SUPERCAR";
 
                 times[miejsce].text = lc.sendTime();
+                zdobyteMonety = lc.sendCoin();
                 Debug.Log("zmiana");
+                Debug.Log(zdobyteMonety);
                 raz = false;
                 inputField.ActivateInputField();
 
