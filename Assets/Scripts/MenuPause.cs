@@ -41,6 +41,7 @@ public class MenuPause : MonoBehaviour
         float set = (((data.vol + 80) / 80) * 9) + 1;
         sound.SetFloat("Sound", (Mathf.Log10(set) - 1) * 80);
         sound.SetFloat("Volume", 0);
+        musicManager.resumeRace();
     }
     void Pause()
     {
@@ -48,7 +49,8 @@ public class MenuPause : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
         sound.SetFloat("Sound",-80);
-        sound.SetFloat("Volume",6);
+        sound.SetFloat("Volume",-80);
+        musicManager.pauseRace();
     }
 
     public void LoadMenu()
@@ -58,6 +60,8 @@ public class MenuPause : MonoBehaviour
     }
     public void QuitGame()
     {
-        Application.Quit();
+        Resume();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 }

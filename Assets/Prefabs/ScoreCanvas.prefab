@@ -360,7 +360,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ScoreScreen, Assembly-CSharp
+        m_TargetAssemblyTypeName: LapComplete, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -1040,7 +1040,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: Restart
 --- !u!1 &2382556870289280811
 GameObject:
   m_ObjectHideFlags: 0
@@ -2997,7 +2997,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2382556871567117993
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3118,7 +3118,7 @@ MonoBehaviour:
   - {fileID: 2382556870566906596}
   - {fileID: 2382556870619490146}
   - {fileID: 2382556870036304998}
-  nr_mapy: 4
+  nr_mapy: 1
   lc: {fileID: 0}
   inputField: {fileID: 2619464758581352870}
   input: {fileID: 1826275716327337658}
@@ -3246,7 +3246,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ScoreScreen, Assembly-CSharp
+        m_TargetAssemblyTypeName: LapComplete, Assembly-CSharp
         m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:

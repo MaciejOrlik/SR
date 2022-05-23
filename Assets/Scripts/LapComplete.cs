@@ -101,8 +101,14 @@ public class LapComplete : MonoBehaviour
 	}
 	public void QuitGame()
 	{
+
+		scorecanvas.SetActive(false);
+		Time.timeScale = 1f;
+		float set = (((data.vol + 80) / 80) * 9) + 1;
+		sound.SetFloat("Sound", (Mathf.Log10(set) - 1) * 80);
+		sound.SetFloat("Volume", 0);
 		ss.zapiszTabliceWynikow();
-		Application.Quit();
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
 	public string sendTime()

@@ -13,6 +13,8 @@ public static class musicManager
     static AudioClip r_mid;
     static AudioClip r_outro;
     static bool isRaceActive;
+    static bool isIntroPause = false;
+    static bool isMidPause = false;
     public static void DDOL(GameObject go)
     {
         if (menuMusic == null)
@@ -53,7 +55,7 @@ public static class musicManager
     {
         if (!gameMusicIntro.GetComponent<AudioSource>().isPlaying)
         {
-            if (isRaceActive)
+            if (isRaceActive && !isIntroPause && !isMidPause)
             {
                 if (!gameMusicMid.GetComponent<AudioSource>().isPlaying)
                 {
@@ -85,6 +87,34 @@ public static class musicManager
             menuMusic.GetComponent<AudioSource>().Play();
         }
         
+    }
+
+    public static void pauseRace()
+    {
+        if (gameMusicIntro.GetComponent<AudioSource>().isPlaying)
+        {
+            gameMusicIntro.GetComponent<AudioSource>().Pause();
+            isIntroPause = true;
+        }
+        else if (gameMusicMid.GetComponent<AudioSource>().isPlaying)
+        {
+            gameMusicMid.GetComponent<AudioSource>().Pause();
+            isMidPause = true;
+        }
+    }
+
+    public static void resumeRace()
+    {
+        if (isIntroPause)
+        {
+            gameMusicIntro.GetComponent<AudioSource>().Play();
+            isIntroPause = false;
+        }
+        else if (isMidPause)
+        {
+            gameMusicMid.GetComponent<AudioSource>().Play();
+            isMidPause = false;
+        }
     }
 
     public static bool isMenuPlaying()
