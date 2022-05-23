@@ -24,23 +24,27 @@ public class ScoreShow : MonoBehaviour
     public Text currentMoney;
     public Text gatheredMoney;
     private int zdobyteMonety = 0;
-
+    int breakcoin = 0;
 
     private void Start()
     {
         cd = CarSave.CrLoad();
         sd = ScoreSave.SdLoad();
         wczytanieDanych();
+        breakcoin = 0;
     }
     
     private void Update()
     {
         currentMoney.text = cd.getMoney().ToString();
+        
 
         if (raz)
         {
             
             miejsce = podajmiejsce();
+            zdobyteMonety = lc.sendCoin();
+            zdobyteMonety = zdobyteMonety * 5;
             if (miejsce < 8)
             {
                 for (int i = 7; i > miejsce; i--)
@@ -62,19 +66,20 @@ public class ScoreShow : MonoBehaviour
                     cars[miejsce].text = "SUPERCAR";
 
                 times[miejsce].text = lc.sendTime();
-                zdobyteMonety = lc.sendCoin();
+                
                 Debug.Log("zmiana");
-                Debug.Log(zdobyteMonety);
+                
                 raz = false;
                 inputField.ActivateInputField();
 
                 gatheredMoney.text = "+" + ((9 - miejsce - 1) * 63 + zdobyteMonety);
                 cd.addMoney(((9 - miejsce - 1) * 63 + zdobyteMonety));
             }
-            else
+            else if (breakcoin == 0)
             {
                 gatheredMoney.text = "+" + zdobyteMonety;
                 cd.addMoney(zdobyteMonety);
+                breakcoin++;
             }
 
         }
