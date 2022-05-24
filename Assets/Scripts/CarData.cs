@@ -17,7 +17,7 @@ public class CarData
     public CarData ()
     {
 
-        Money = 1000000000;
+        Money = 0;
         Index = 0;
         for (int i = 0; i < 4; i++)
         {

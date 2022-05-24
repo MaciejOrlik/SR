@@ -10,7 +10,7 @@ public class MenuPause : MonoBehaviour
     public GameObject pauseMenuUI;
     public AudioMixer sound;
     private OptionData data;
-
+    public GameObject scorecanvas;
     private void Start()
     {
         musicManager.Race();
@@ -18,8 +18,7 @@ public class MenuPause : MonoBehaviour
     }
     void Update()
     {
-        
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(GameIsPaused)
             {

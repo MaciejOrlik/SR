@@ -6,6 +6,11 @@ using System;
 
 public class ScoreShow : MonoBehaviour
 {
+    public Text total;
+    public Text place;
+    public Text coins;
+
+    public GameObject pauzy;
     public Text[] names;
     public Text[] cars;
     public Text[] times;
@@ -37,7 +42,9 @@ public class ScoreShow : MonoBehaviour
     private void Update()
     {
         currentMoney.text = cd.getMoney().ToString();
+
         
+
 
         if (raz)
         {
@@ -45,6 +52,10 @@ public class ScoreShow : MonoBehaviour
             miejsce = podajmiejsce();
             zdobyteMonety = lc.sendCoin();
             zdobyteMonety = zdobyteMonety * 5;
+
+
+            pauzy.SetActive(false);
+
             if (miejsce < 8)
             {
                 for (int i = 7; i > miejsce; i--)
@@ -72,15 +83,25 @@ public class ScoreShow : MonoBehaviour
                 raz = false;
                 inputField.ActivateInputField();
 
-                gatheredMoney.text = "+" + ((9 - miejsce - 1) * 63 + zdobyteMonety);
+                gatheredMoney.text = "+ " + ((9 - miejsce - 1) * 63 + zdobyteMonety);
                 cd.addMoney(((9 - miejsce - 1) * 63 + zdobyteMonety));
+
+                place.text = "+ " + ((9 - miejsce - 1) * 63).ToString();
+                total.text = "+ " + ((9 - miejsce - 1) * 63 + zdobyteMonety);
+                coins.text = "+ " + zdobyteMonety.ToString();
             }
             else if (breakcoin == 0)
             {
-                gatheredMoney.text = "+" + zdobyteMonety;
+                gatheredMoney.text = "+ " + zdobyteMonety;
                 cd.addMoney(zdobyteMonety);
                 breakcoin++;
+                raz = false;
+
+                place.text = "+ 0";
+                total.text = "+ " + zdobyteMonety;
+                coins.text = "+ " + zdobyteMonety.ToString();
             }
+
 
         }
         if (miejsce<8)
@@ -99,7 +120,7 @@ public class ScoreShow : MonoBehaviour
         }
     }
     
-   private int podajmiejsce()
+   public int podajmiejsce()
     {
         int temp = 9;
         
