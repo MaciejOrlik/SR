@@ -21,7 +21,7 @@ public class MapSelect : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetButton("Cancel"))
         {
             SceneManager.LoadScene("Garage");
         }

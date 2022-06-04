@@ -11,6 +11,7 @@ public class MenuPause : MonoBehaviour
     public AudioMixer sound;
     private OptionData data;
     public GameObject scorecanvas;
+    public GameObject optionMenu;
     private void Start()
     {
         musicManager.Race();
@@ -18,7 +19,7 @@ public class MenuPause : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetButtonDown("Cancel"))
         {
             if(GameIsPaused)
             {
@@ -29,12 +30,34 @@ public class MenuPause : MonoBehaviour
                 Pause();
             }
         }
+
         musicManager.RaceUptade();
+        
+        if (GameIsPaused)
+        {
+            if (optionMenu.activeSelf)
+            {
+                if (pauseMenuUI.activeSelf)
+                {
+                    pauseMenuUI.SetActive(false);
+                }
+            }
+            else if (!pauseMenuUI.activeSelf)
+            {
+                pauseMenuUI.SetActive(true);
+            }
+        }
+    }
+    
+    public void Options()
+    {
+        optionMenu.SetActive(true);
     }
 
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        optionMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
         float set = (((data.vol + 80) / 80) * 9) + 1;

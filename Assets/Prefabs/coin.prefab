@@ -130,3 +130,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coin: {fileID: 0}
   Coin: {fileID: 7928960213974125217}
+  coinPlayer: {fileID: 746256016243219891, guid: 1a39e8cec747f8c45af9c6cdc6d75ba6, type: 3}

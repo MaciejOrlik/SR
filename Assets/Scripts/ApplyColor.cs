@@ -28,37 +28,22 @@ public class ApplyColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if(car.activeSelf == true)
         {
-            
- 
            material.color = fcp.color;
         }
         if (car1.activeSelf == true)
         {
-            
             material1.color = fcp.color;
         }
         if (car2.activeSelf == true)
         {
-            
             material2.color = fcp.color;
         }
         if (car3.activeSelf == true)
         {
-            
             material3.color = fcp.color;
         }
-
-        
-
-
-
-
-
-
-
     }
 
     public void OnColor()
@@ -71,7 +56,6 @@ public class ApplyColor : MonoBehaviour
         {
             canvas.SetActive(true);
         }
-
     }
 
     public void Setbasematerial()
@@ -91,9 +75,6 @@ public class ApplyColor : MonoBehaviour
         if (car3.activeSelf == true)
         {
             fcp.color = basematerial3.color;
-        }
-       
-        
-        
+        }        
     }
 }
