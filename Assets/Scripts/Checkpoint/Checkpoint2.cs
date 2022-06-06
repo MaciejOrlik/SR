@@ -8,8 +8,11 @@ public class Checkpoint2 : MonoBehaviour
     public GameObject Check2;
     public GameObject Check3;
 
+    public LapComplete coinDisplay;
+
     void OnTriggerEnter()
     {
+        coinDisplay.checkpointcounter++;
         Check3.SetActive(true);
         Check2.SetActive(false);
 
