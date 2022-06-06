@@ -8,9 +8,9 @@ using UnityEngine.Audio;
 
 public class LapComplete : MonoBehaviour
 {
-	public GameObject MinuteDisplay;
-	public GameObject SecondDisplay;
-	public GameObject MilliDisplay;
+	private GameObject MinuteDisplay;
+	private GameObject SecondDisplay;
+	private GameObject MilliDisplay;
 
 	public GameObject scorecanvas;
 
@@ -28,6 +28,8 @@ public class LapComplete : MonoBehaviour
 	public int coin;
 	public int allcoins;
 
+	public int checkpointcounter;
+
 
     private void Awake()
     {
@@ -41,27 +43,27 @@ public class LapComplete : MonoBehaviour
 		if (LapTimeManager.MinuteCount <= 9)
 		{
 			min = "0" + LapTimeManager.MinuteCount.ToString() + ":";
-			MinuteDisplay.GetComponent<Text>().text = "0" + LapTimeManager.MinuteCount + ":";
+			//MinuteDisplay.GetComponent<Text>().text = "0" + LapTimeManager.MinuteCount + ":";
 		}
 		else
 		{
 			min = "" + LapTimeManager.MinuteCount.ToString() + ":";
-			MinuteDisplay.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + ":";
+			//MinuteDisplay.GetComponent<Text>().text = "" + LapTimeManager.MinuteCount + ":";
 		}
 
 		if (LapTimeManager.SecondCount <= 9)
 		{
 			sec = "0" + LapTimeManager.SecondCount.ToString() + ".";
-			SecondDisplay.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + ".";
+			//SecondDisplay.GetComponent<Text>().text = "0" + LapTimeManager.SecondCount + ".";
 		}
 		else
 		{
 			sec = "" + LapTimeManager.SecondCount.ToString() + ".";
-			SecondDisplay.GetComponent<Text>().text = "" + LapTimeManager.SecondCount + ".";
+			//SecondDisplay.GetComponent<Text>().text = "" + LapTimeManager.SecondCount + ".";
 		}
 
 		mili = "" + LapTimeManager.MilliCount.ToString("f0");
-		MilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount;
+		//MilliDisplay.GetComponent<Text>().text = "" + LapTimeManager.MilliCount;
 
 		time = min + sec + mili;
 
