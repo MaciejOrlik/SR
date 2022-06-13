@@ -48,13 +48,14 @@ public class ApplyColor : MonoBehaviour
 
     public void OnColor()
     {
-        if(canvas.activeSelf == true)
-        {
-            canvas.SetActive(false);
-        }
+        
         if (canvas.activeSelf == false)
         {
             canvas.SetActive(true);
+        }
+        else
+        {
+            canvas.SetActive(false);
         }
     }
 
