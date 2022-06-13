@@ -83,21 +83,21 @@ public class ScoreShow : MonoBehaviour
                 raz = false;
                 inputField.ActivateInputField();
 
-                gatheredMoney.text = "+ " + ((9 - miejsce - 1) * 63 + zdobyteMonety);
-                cd.addMoney(((9 - miejsce - 1) * 63 + zdobyteMonety));
+                gatheredMoney.text = "+ " + ((9 - miejsce - 1) * 63 + zdobyteMonety + 100);
+                cd.addMoney(((9 - miejsce - 1) * 63 + zdobyteMonety + 100));
 
-                place.text = "+ " + ((9 - miejsce - 1) * 63).ToString();
-                total.text = "+ " + ((9 - miejsce - 1) * 63 + zdobyteMonety);
+                place.text = "+ " + ((9 - miejsce - 1) * 63 + 100).ToString();
+                total.text = "+ " + ((9 - miejsce - 1) * 63 + zdobyteMonety + 100);
                 coins.text = "+ " + zdobyteMonety.ToString();
             }
             else if (breakcoin == 0)
             {
                 gatheredMoney.text = "+ " + zdobyteMonety;
-                cd.addMoney(zdobyteMonety);
+                cd.addMoney(zdobyteMonety + 100);
                 breakcoin++;
                 raz = false;
 
-                place.text = "+ 0";
+                place.text = "+ 100";
                 total.text = "+ " + zdobyteMonety;
                 coins.text = "+ " + zdobyteMonety.ToString();
             }
