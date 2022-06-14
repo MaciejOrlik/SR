@@ -98,7 +98,7 @@ public class ScoreShow : MonoBehaviour
                 raz = false;
 
                 place.text = "+ 100";
-                total.text = "+ " + zdobyteMonety;
+                total.text = "+ " + (zdobyteMonety + 100);
                 coins.text = "+ " + zdobyteMonety.ToString();
             }
 
