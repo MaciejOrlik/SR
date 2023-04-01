@@ -3,7 +3,9 @@ Street Racing
 
 Car racing game made in Unity
 
-Authors: Tomasz Redmerski
+Authors:
+
+         Tomasz Redmerski
          Maciej Orlik
          Patryk Morawiec
          
